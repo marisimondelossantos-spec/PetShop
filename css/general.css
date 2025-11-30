@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #f7f6f6;
+  background-color: #999;
   color: #333;
   line-height: 1.6;
 }
@@ -679,7 +679,7 @@ body {
     border-top: 1px solid #eaeaea;
   }
 
-  .navbar .nav-links.active + .auth-buttons,
+  .navbar .nav-links.active+.auth-buttons,
   .navbar .auth-buttons.active {
     display: flex;
   }
@@ -902,5 +902,5 @@ body {
 
   .hero-image {
     max-width: 240px;
-  } 
+  }
 }
