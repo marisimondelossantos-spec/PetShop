@@ -1,14 +1,15 @@
 body {
     padding-top: 120px;
-    background-color: #fff;
+    background-color: #f0f4f8;
 }
 
 
 .pets-available {
-    background-color: #fff;
+    background-color: #e8f1f5;
     padding: 60px 0;
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .pets-available .container {
@@ -35,7 +36,11 @@ body {
 .pets-carousel-wrapper {
     position: relative;
     overflow: hidden;
-    width: 100%;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     padding: 20px 0;
 }
 
