@@ -1,0 +1,687 @@
+/* CATEGORIES SECTION */
+.categories {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  background-color: #fff;
+  min-height: auto;
+}
+
+.categories .container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Title */
+.categories .text-icons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.categories h1 {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 40px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.2;
+}
+
+/* Cards Grid */
+.categories .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+  justify-items: center;
+}
+
+/* Card */
+.categories .card {
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.categories .card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card Images */
+.categories .img,
+.categories .img-2,
+.categories .img-3,
+.categories .img-4 {
+  width: 100%;
+  height: 216px;
+  background-size: cover;
+  background-position: center;
+  border: 2px dashed #e0e0e0;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.categories .img {
+  background-image: url(./img/img-2.png);
+}
+
+.categories .img-2 {
+  background-image: url(./img/img.png);
+}
+
+.categories .img-3 {
+  background-image: url(./img/image.png);
+}
+
+.categories .img-4 {
+  background-image: url(./img/img-3.png);
+}
+
+/* Card Text & Icon */
+.categories .text-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 20px 16px;
+  border-radius: 0 0 20px 20px;
+}
+
+.categories .text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.categories .product-title {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.categories .product-amount {
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 16px;
+  color: #00000099;
+}
+
+/* Icon */
+.icon-bg .arrow-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.icon-bg .arrow-link img {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.2s ease;
+}
+
+.icon-bg .arrow-link:hover img {
+  transform: scale(1.4);
+}
+
+/* INFO ABOUT US */
+.info-block {
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 120px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-block .container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+.info-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-text h3 {
+  background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.info-text h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.info-text p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.info-block .shape-img {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-block .shape-img .shape {
+  width: 100%;
+  height: auto;
+}
+
+.info-block .shape-img .img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  z-index: 1;
+}
+
+.info-block .text-button {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
+  min-width: 300px;
+}
+
+/* BEST SELLING */
+.best-selling {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 40px;
+  background-color: #fff;
+}
+
+.best-selling .container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+.best-selling .title-middle {
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000;
+  font-size: 40px;
+  text-align: center;
+}
+
+/* Cards Grid */
+.best-selling .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+  justify-items: center;
+}
+
+.best-selling .card {
+  border: 1px solid var(--gray-100);
+  border-radius: 20px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+  max-width: 400px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.best-selling .card:hover {
+  transform: translateY(-5px);
+}
+
+.best-selling .img {
+  width: 100%;
+  height: 306px;
+  background: #f8f9fa;
+  background-size: cover;
+  background-position: center;
+  border: 2px dashed #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.best-selling .text-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 0 0 20px 20px;
+}
+
+.best-selling .text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.best-selling .product-title {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+}
+
+.best-selling .product-amount {
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 12px;
+  color: #00000099;
+}
+
+.best-selling .icon-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SHOP BY PET */
+.shop-by-pet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 60px;
+  padding: 60px 40px;
+  background-color: #fff;
+}
+
+.shop-by-pet .container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.shop-by-pet .text-icon {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.shop-by-pet .text-middle {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+/* Pet Cards */
+.shop-by-pet .imgs-bg-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.shop-by-pet .img-bg-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.shop-by-pet .img-shape {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.shop-by-pet .shape,
+.shop-by-pet .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.shop-by-pet .img-shape:hover img {
+  transform: scale(1.1);
+}
+
+.shop-by-pet .pet-name {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 20px;
+  color: #000;
+  text-align: center;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+   ========================== */
+
+/* Large Desktops */
+@media (max-width: 1440px) {
+  .categories {
+    padding: 60px 30px;
+  }
+
+  .info-block {
+    padding: 100px 30px;
+  }
+
+  .best-selling {
+    padding: 60px 30px;
+  }
+
+  .shop-by-pet {
+    padding: 60px 30px;
+  }
+}
+
+/* Tablets & Medium Screens */
+@media (max-width: 1024px) {
+  .categories {
+    padding: 50px 20px;
+    gap: 50px;
+  }
+
+  .categories h1 {
+    font-size: 36px;
+  }
+
+  .categories .cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .info-block {
+    padding: 80px 20px;
+  }
+
+  .info-block .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .info-text {
+    width: 100%;
+  }
+
+  .info-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .info-text p {
+    max-width: 100%;
+  }
+
+  .info-block .shape-img {
+    width: 80%;
+    max-width: 500px;
+    order: -1;
+  }
+
+  .info-block .text-button {
+    width: 100%;
+    align-items: center;
+  }
+
+  .best-selling {
+    padding: 50px 20px;
+    gap: 50px;
+  }
+
+  .best-selling .title-middle {
+    font-size: 36px;
+  }
+
+  .best-selling .cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .shop-by-pet {
+    padding: 50px 20px;
+    gap: 50px;
+  }
+
+  .shop-by-pet .text-middle {
+    font-size: 36px;
+  }
+
+  .shop-by-pet .imgs-bg-text {
+    justify-content: center;
+    gap: 32px;
+  }
+}
+
+/* Small Tablets & Large Phones */
+@media (max-width: 768px) {
+  .categories {
+    padding: 40px 15px;
+    gap: 40px;
+  }
+
+  .categories h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .categories .cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .info-block {
+    padding: 60px 15px;
+  }
+
+  .info-text h1 {
+    font-size: 2rem;
+  }
+
+  .info-text p {
+    font-size: 0.95rem;
+  }
+
+  .info-block .shape-img {
+    width: 90%;
+  }
+
+  .best-selling {
+    padding: 40px 15px;
+    gap: 40px;
+  }
+
+  .best-selling .title-middle {
+    font-size: 32px;
+  }
+
+  .best-selling .cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .shop-by-pet {
+    padding: 40px 15px;
+    gap: 40px;
+  }
+
+  .shop-by-pet .text-middle {
+    font-size: 32px;
+  }
+
+  .shop-by-pet .img-bg-text {
+    min-width: 150px;
+  }
+
+  .shop-by-pet .img-shape {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .categories {
+    padding: 30px 10px;
+    gap: 30px;
+  }
+
+  .categories h1 {
+    font-size: 28px;
+  }
+
+  .categories .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .categories .card {
+    max-width: 100%;
+  }
+
+  .info-block {
+    padding: 40px 10px;
+  }
+
+  .info-text h3 {
+    font-size: 14px;
+  }
+
+  .info-text h1 {
+    font-size: 1.75rem;
+  }
+
+  .info-text p {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-block .shape-img {
+    width: 95%;
+    max-width: 320px;
+  }
+
+  .best-selling {
+    padding: 30px 10px;
+    gap: 30px;
+  }
+
+  .best-selling .title-middle {
+    font-size: 28px;
+  }
+
+  .best-selling .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .best-selling .card {
+    max-width: 100%;
+  }
+
+  .shop-by-pet {
+    padding: 30px 10px;
+    gap: 30px;
+  }
+
+  .shop-by-pet .text-middle {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .shop-by-pet .imgs-bg-text {
+    gap: 20px;
+  }
+
+  .shop-by-pet .img-bg-text {
+    width: 100%;
+    min-width: 120px;
+  }
+
+  .shop-by-pet .img-shape {
+    width: 130px;
+    height: 130px;
+  }
+
+  .shop-by-pet .pet-name {
+    font-size: 18px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .categories h1 {
+    font-size: 24px;
+  }
+
+  .info-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .best-selling .title-middle {
+    font-size: 24px;
+  }
+
+  .shop-by-pet .text-middle {
+    font-size: 24px;
+  }
+
+  .shop-by-pet .img-shape {
+    width: 110px;
+    height: 110px;
+  }
+}

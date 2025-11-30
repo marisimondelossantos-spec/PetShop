@@ -1,0 +1,535 @@
+.hero-image {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  min-height: 500px;
+}
+
+/* Shape stays in the background */
+.hero-image .shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1;
+}
+
+/* Badge/Image goes on top of the shape */
+.hero-image .badge,
+.hero-image .img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+   ========================== */
+@media (max-width: 1440px) {
+  .hero {
+    padding: 28px 100px 0px 100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    padding: 28px 40px 0px 40px;
+  }
+  
+  .hero-content {
+    gap: 40px;
+  }
+  
+  .hero-text {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    height: auto;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero-image {
+    max-width: 500px;
+    min-height: 400px;
+  }
+}
+  /* ==========================
+     ABOUT OUR STORE SECTION
+     ========================== */
+  .about-our-store {
+    padding: 60px 312px;
+    padding-top: 180px;
+    background-color: #fff;
+  }
+  
+  .about-our-store .container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .about-our-store .text-header h2 {
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #000;
+    font-size: 40px;
+    line-height: 48px;
+    margin: 0;
+  }
+  
+  .about-our-store .text-columns {
+    display: flex;
+    gap: 110px;
+    width: 100%;
+  }
+  
+  .about-our-store .column-1,
+  .about-our-store .column-2 {
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000cc;
+    font-size: 16px;
+    line-height: 25.6px;
+    flex: 1;
+  }
+  
+  .about-our-store .stats {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .about-our-store .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .about-our-store .stat-number {
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 32px;
+    line-height: 51.2px;
+  }
+  
+  .about-our-store .stat-label {
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000cc;
+    font-size: 16px;
+    line-height: 25.6px;
+  }
+  
+  /* ==========================
+     FOUNDER INFO BLOCK SECTION
+     ========================== */
+  .info-block {
+    padding: 60px 312px;
+    background-color: #f8f9fa;
+  }
+  
+  .info-block .container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .info-block .founder-img {
+    background-color: #ccc;
+    width: 550px;
+    min-width: 550px;
+    height: 580px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .info-block .founder-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .info-block .founder-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .info-block .founder-header h3 {
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    color: #000;
+    margin: 0;
+  }
+  
+  .info-block .role {
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .info-block .description {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .info-block .description p {
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* ==========================
+     OUR TEAM SECTION
+     ========================== */
+  .our-team {
+    padding: 60px 312px 120px 312px;
+    background-color: #fff;
+  }
+  
+  .our-team .container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .our-team .team-header h2 {
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #000;
+    font-size: 40px;
+    line-height: 48px;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .our-team .team-cards {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .our-team .team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .our-team .team-img {
+    background-color: #ccc;
+    width: 416px;
+    height: 416px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .our-team .team-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .our-team .team-info h3 {
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #000;
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 0;
+  }
+  
+  .our-team .team-info p {
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #00000099;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  /* ==========================
+     TESTIMONIALS SECTION
+     ========================== */
+  .testimonials {
+    padding: 60px 312px;
+    background-color: #f8f9fa;
+  }
+  
+  .testimonials .container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+  
+  .testimonials .testimonial-content {
+    display: flex;
+    align-items: center;
+    gap: 72px;
+  }
+  
+  .testimonials .testimonial-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .testimonials .testimonial-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .testimonials .testimonial-header h4 {
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+  
+  .testimonials .testimonial-header h2 {
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #000;
+    font-size: 40px;
+    line-height: 48px;
+    margin: 0;
+  }
+  
+  .testimonials .stars-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .testimonials .stars {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .testimonials .star {
+    width: 18.67px;
+    height: 17.86px;
+  }
+  
+  .testimonials .testimonial-quote {
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    font-style: italic;
+    color: #000000cc;
+    font-size: 20px;
+    line-height: 32px;
+    margin: 0;
+    max-width: 680px;
+  }
+  
+  .testimonials .customer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .testimonials .customer-info h5 {
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #000;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .testimonials .customer-info p {
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #00000099;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .testimonials .testimonial-image {
+    flex-shrink: 0;
+  }
+  
+  .testimonials .testimonial-image img {
+    width: 500px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* ==========================
+     RESPONSIVE DESIGN
+     ========================== */
+  @media (max-width: 1280px) {
+    .hero-about,
+    .about-our-store,
+    .info-block,
+    .our-team,
+    .testimonials {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    
+    .hero-about-text h1 {
+      font-size: 46px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .hero-about-content,
+    .info-block .container,
+    .testimonials .testimonial-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero-about-text,
+    .info-block .founder-text {
+      max-width: 100%;
+      align-items: center;
+    }
+    
+    .info-block .founder-img {
+      min-width: auto;
+      width: 100%;
+      max-width: 500px;
+    }
+  
+    .about-our-store .text-columns {
+      flex-direction: column;
+      gap: 30px;
+    }
+  
+    .about-our-store .stats {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+  
+    .our-team .team-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-about,
+    .about-our-store,
+    .info-block,
+    .our-team,
+    .testimonials {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    .hero-about-text h1 {
+      font-size: 36px;
+    }
+  
+    .about-our-store .text-header h2,
+    .our-team .team-header h2,
+    .testimonials .testimonial-header h2 {
+      font-size: 32px;
+    }
+  
+    .our-team .team-img {
+      width: 100%;
+      max-width: 400px;
+    }
+  
+    .info-block .founder-img {
+      height: 450px;
+    }
+  
+    .testimonials .testimonial-image img {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-about-text h1 {
+      font-size: 28px;
+    }
+  
+    .about-our-store .text-header h2,
+    .our-team .team-header h2,
+    .testimonials .testimonial-header h2 {
+      font-size: 28px;
+    }
+  
+    .about-our-store .stats {
+      flex-direction: column;
+    }
+  
+    .info-block .founder-img {
+      height: 350px;
+    }
+  
+    .testimonials .testimonial-quote {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }

@@ -1,0 +1,394 @@
+.contact-section {
+  padding: 60px 0;
+  padding-top: 180px;
+  background-color: white;
+}
+
+.form-text-icons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 110px;
+  position: relative;
+}
+
+.form-text-icons .form {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 40px;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.form-text-icons .inputs-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.form-text-icons .inputs {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.form-text-icons .input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+}
+
+.form-text-icons .label {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.form-text-icons .content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.form-text-icons .placeholder {
+  flex: 1;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #6c757d;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.form-text-icons .div,
+.form-text-icons .div-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-text-icons .input-2 {
+  height: 178px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+}
+
+.form-text-icons .text-submit {
+  font-family: "Poppins-Medium", Helvetica;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.form-text-icons .text-big {
+  font-family: "Poppins-Medium", Helvetica;
+  font-weight: 500;
+  color: #000;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.form-text-icons .content-2 {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 16px;
+  flex: 1;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.form-text-icons .button {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  width: 248px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background-color: #f59e0b;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-text-icons .button:hover {
+  background-color: #e98c00;
+}
+
+.form-text-icons .text-default {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: black;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.form-text-icons .text-icons {
+  display: flex;
+  flex-direction: column;
+  width: 636px;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.form-text-icons .p {
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.form-text-icons .icons-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.form-text-icons .icon-text {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-text-icons .icon-bg {
+  width: 40px;
+  height: 40px;
+  background-color: #f59e0b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1440px) {
+  .contact-section {
+    padding: 50px 30px;
+  }
+
+  .form-text-icons {
+    gap: 80px;
+  }
+
+  .form-text-icons .form {
+    width: 500px;
+  }
+
+  .form-text-icons .text-icons {
+    width: 550px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact-section {
+    padding: 50px 20px;
+  }
+
+  .form-text-icons {
+    gap: 60px;
+  }
+
+  .form-text-icons .form {
+    width: 450px;
+    padding: 30px;
+  }
+
+  .form-text-icons .text-icons {
+    width: 480px;
+  }
+
+  .form-text-icons .p {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .form-text-icons .inputs {
+    gap: 16px;
+  }
+
+  .form-text-icons .inputs-button {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 15px;
+  }
+
+  .form-text-icons {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .form-text-icons .form {
+    width: 100%;
+    max-width: 550px;
+    padding: 30px 25px;
+  }
+
+  .form-text-icons .text-icons {
+    width: 100%;
+    max-width: 550px;
+  }
+
+  .form-text-icons .p {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .form-text-icons .inputs {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-text-icons .button {
+    width: 100%;
+  }
+
+  .form-text-icons .icon-text {
+    gap: 16px;
+  }
+
+  .form-text-icons .icons-text {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 30px 10px;
+  }
+
+  .form-text-icons {
+    gap: 40px;
+  }
+
+  .form-text-icons .form {
+    padding: 25px 20px;
+    border-radius: 16px;
+  }
+
+  .form-text-icons .p {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .form-text-icons .label {
+    font-size: 15px;
+  }
+
+  .form-text-icons .placeholder,
+  .form-text-icons .text-big {
+    font-size: 15px;
+  }
+
+  .form-text-icons .content,
+  .form-text-icons .content-2 {
+    padding: 8px 14px;
+  }
+
+  .form-text-icons .input-2 {
+    height: 150px;
+  }
+
+  .form-text-icons .inputs-button {
+    gap: 18px;
+  }
+
+  .form-text-icons .button {
+    padding: 12px 18px;
+    height: 38px;
+  }
+
+  .form-text-icons .text-default {
+    font-size: 15px;
+  }
+
+  .form-text-icons .icon-bg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .form-text-icons .icon-text {
+    gap: 14px;
+  }
+
+  .form-text-icons .icons-text {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-section {
+    padding: 25px 10px;
+  }
+
+  .form-text-icons {
+    gap: 35px;
+  }
+
+  .form-text-icons .form {
+    padding: 20px 15px;
+  }
+
+  .form-text-icons .p {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .form-text-icons .label {
+    font-size: 14px;
+  }
+
+  .form-text-icons .placeholder,
+  .form-text-icons .text-big,
+  .form-text-icons .text-default {
+    font-size: 14px;
+  }
+
+  .form-text-icons .content,
+  .form-text-icons .content-2 {
+    padding: 7px 12px;
+  }
+
+  .form-text-icons .input-2 {
+    height: 130px;
+  }
+
+  .form-text-icons .button {
+    padding: 10px 16px;
+    height: 36px;
+  }
+
+  .form-text-icons .icon-bg {
+    width: 32px;
+    height: 32px;
+  }
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Happy Animal Pet Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/signup.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main-jquery.js"></script>
+  <script src="js/auth-validation-jquery.js"></script>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="logo">
+        <i class="fas fa-paw logo-icon"></i>
+        <div class="logo-text">Happy Animal</div>
+      </div>
+      <div class="search-container">
+        <input type="text" id="product-search" placeholder="Search products...">
+        <a href="#"><i class="fas fa-search"></i></a>
+      </div>
+    </div>
+
+    <button class="mobile-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Shop.html">Shop</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+
+    <div class="auth-buttons">
+      <a href="login.html" class="btn-login">Log In</a>
+      <a href="signup.html" class="btn-signup">Sign Up</a>
+    </div>
+  </nav>
+
+  <!-- SIGNUP SECTION -->
+  <section class="signup-section">
+    <div class="container">
+      <div class="signup-wrapper">
+        <div class="signup-header">
+          <h1>Create Account</h1>
+          <p>Join Happy Animal Pet Shop and enjoy exclusive offers!</p>
+        </div>
+
+        <form class="signup-form" id="signupForm" action="#" method="post" novalidate>
+          <!-- Personal Information -->
+          <div class="form-section">
+            <h3>Personal Information</h3>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name" required>
+                <span class="error-message" id="firstNameError"></span>
+              </div>
+              <div class="col-md-4">
+                <label for="middleName" class="form-label">Middle Name</label>
+                <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Enter middle name">
+              </div>
+              <div class="col-md-4">
+                <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter last name" required>
+                <span class="error-message" id="lastNameError"></span>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="contactNumber" class="form-label">Contact Number <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="contactNumber" name="contactNumber" placeholder="09XX XXX XXXX" required maxlength="11">
+                <span class="error-message" id="contactNumberError"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Address Information -->
+          <div class="form-section">
+            <h3>Address Information</h3>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label for="province" class="form-label">Province <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="province" name="province" placeholder="Enter province" required>
+                <span class="error-message" id="provinceError"></span>
+              </div>
+              <div class="col-md-4">
+                <label for="city" class="form-label">City <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" required>
+                <span class="error-message" id="cityError"></span>
+              </div>
+              <div class="col-md-4">
+                <label for="zipCode" class="form-label">Zip Code <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Enter zip code" required>
+                <span class="error-message" id="zipCodeError"></span>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="zoneStreet" class="form-label">Zone & Street <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="zoneStreet" name="zoneStreet" placeholder="Enter zone, street, house number" required>
+                <span class="error-message" id="zoneStreetError"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Account Information -->
+          <div class="form-section">
+            <h3>Account Information</h3>
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" required>
+                <span class="error-message" id="emailError"></span>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter password (min 8 characters)" required minlength="8">
+                  <button type="button" class="btn btn-outline-secondary toggle-password">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <span class="error-message" id="passwordError"></span>
+              </div>
+              <div class="col-md-6">
+                <label for="confirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                  <button type="button" class="btn btn-outline-secondary toggle-password">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <span class="error-message" id="confirmPasswordError"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terms and Submit -->
+          <div class="form-section">
+            <div class="terms-checkbox">
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            <span class="error-message terms-error" id="termsError"></span>
+
+            <button type="submit" class="btn btn-primary w-100 btn-lg">Create Account</button>
+
+            <p class="login-link">Already have an account? <a href="login.html">Log In</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
