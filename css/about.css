@@ -4,7 +4,7 @@
 .about-our-store {
   padding: 60px 40px;
   padding-top: 180px;
-  background-color: #f1f3f5;
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff5f0 100%);
   min-height: 100vh;
 }
 
@@ -360,6 +360,7 @@
 
 /* Responsive Design */
 @media (max-width: 1280px) {
+
   .about-our-store,
   .info-block,
   .our-team,
@@ -404,6 +405,7 @@
 }
 
 @media (max-width: 768px) {
+
   .about-our-store,
   .info-block,
   .our-team,
@@ -434,6 +436,7 @@
 }
 
 @media (max-width: 480px) {
+
   .about-our-store .text-header h2,
   .our-team .team-header h2,
   .testimonials .testimonial-header h2 {

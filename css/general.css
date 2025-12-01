@@ -236,7 +236,7 @@ body {
   flex-direction: column;
   padding: 28px 40px 0px 40px;
   position: relative;
-  background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff5f0 100%);
   overflow: hidden;
 }
 

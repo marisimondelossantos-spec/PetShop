@@ -3,7 +3,7 @@
 .contact-section {
   padding: 60px 0;
   padding-top: 180px;
-  background-color: #f1f3f5;
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff5f0 100%);
   min-height: 100vh;
 }
 
