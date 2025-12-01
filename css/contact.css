@@ -1,7 +1,17 @@
+/* Contact Page Typography and Formating - Based on Signup/Login Theme */
+
 .contact-section {
   padding: 60px 0;
   padding-top: 180px;
-  background-color: white;
+  background-color: #f1f3f5;
+  min-height: 100vh;
+}
+
+.contact-section .container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .form-text-icons {
@@ -32,121 +42,88 @@
   width: 100%;
 }
 
-.form-text-icons .inputs {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  width: 100%;
+.form-text-icons .form-group {
+  margin-bottom: 20px;
 }
 
-.form-text-icons .input {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  flex: 1;
-}
-
-.form-text-icons .label {
-  font-family: "Poppins-SemiBold", Helvetica;
+.form-text-icons .form-label {
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #000;
   font-size: 16px;
   line-height: 20px;
+  margin-bottom: 8px;
 }
 
-.form-text-icons .content {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 6px;
+.form-text-icons .form-control {
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-.form-text-icons .placeholder {
-  flex: 1;
-  font-family: "Poppins-Regular", Helvetica;
-  font-weight: 400;
-  color: #6c757d;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-.form-text-icons .div,
-.form-text-icons .div-2 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  width: 100%;
-}
-
-.form-text-icons .input-2 {
-  height: 178px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  width: 100%;
-}
-
-.form-text-icons .text-submit {
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: bold;
-  color: white;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-.form-text-icons .text-big {
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #000;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-.form-text-icons .content-2 {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 9px 16px;
-  flex: 1;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 6px;
-}
-
-.form-text-icons .button {
-  all: unset;
+/* Specific styling for message textarea */
+.form-text-icons .form-control#message {
+  padding: 20px 16px;
+  margin-right: 265px;
+  min-height: 120px;
+  text-align: left;
   box-sizing: border-box;
-  display: flex;
-  width: 248px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 20px;
-  background-color: #f59e0b;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-.form-text-icons .button:hover {
-  background-color: #e98c00;
+/* Enhanced message textarea styling */
+.form-group:nth-child(4) {
+  margin-bottom: 32px;
 }
 
-.form-text-icons .text-default {
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: black;
+.form-group:nth-child(4) .form-label {
+  margin-bottom: 16px;
+}
+
+.form-group:nth-child(4) .form-control {
+  width: 100%;
+  padding: 24px;
+  min-height: 180px;
   font-size: 16px;
-  line-height: normal;
+  line-height: 1.6;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+.form-text-icons .form-control:focus {
+  border-color: #F87537;
+  box-shadow: 0 0 0 4px rgba(248, 117, 55, 0.1);
+}
+
+/* Submit button styling */
+.form-text-icons .btn-primary {
+  width: 100%;
+  padding: 16px 32px;
+  background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%);
+  border: none;
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-text-icons .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(248, 117, 55, 0.4);
+}
+
+.form-text-icons .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Contact info styling */
 .form-text-icons .text-icons {
   display: flex;
   flex-direction: column;
@@ -155,12 +132,28 @@
   gap: 40px;
 }
 
+.form-text-icons .div-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
 .form-text-icons .p {
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: #000;
   font-size: 40px;
   line-height: 48px;
+}
+
+.form-text-icons .text-big {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .form-text-icons .icons-text {
@@ -177,18 +170,38 @@
 }
 
 .form-text-icons .icon-bg {
-  width: 40px;
-  height: 40px;
-  background-color: #f59e0b;
+  width: 48px;
+  height: 48px;
+  background-color: #F87537;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.form-text-icons .icon-bg img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.form-text-icons .text-default {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.form-text-icons .span {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Responsive Design */
 @media (max-width: 1440px) {
-  .contact-section {
-    padding: 50px 30px;
+  .contact-section .container {
+    padding: 0 30px;
   }
 
   .form-text-icons {
@@ -205,8 +218,8 @@
 }
 
 @media (max-width: 1024px) {
-  .contact-section {
-    padding: 50px 20px;
+  .contact-section .container {
+    padding: 0 20px;
   }
 
   .form-text-icons {
@@ -227,18 +240,14 @@
     line-height: 44px;
   }
 
-  .form-text-icons .inputs {
-    gap: 16px;
-  }
-
-  .form-text-icons .inputs-button {
-    gap: 20px;
+  .form-text-icons .text-big {
+    font-size: 15px;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-section {
-    padding: 40px 15px;
+  .contact-section .container {
+    padding: 0 15px;
   }
 
   .form-text-icons {
@@ -263,13 +272,8 @@
     line-height: 40px;
   }
 
-  .form-text-icons .inputs {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .form-text-icons .button {
-    width: 100%;
+  .form-text-icons .text-big {
+    font-size: 14px;
   }
 
   .form-text-icons .icon-text {
@@ -282,8 +286,8 @@
 }
 
 @media (max-width: 480px) {
-  .contact-section {
-    padding: 30px 10px;
+  .contact-section .container {
+    padding: 0 10px;
   }
 
   .form-text-icons {
@@ -300,31 +304,22 @@
     line-height: 36px;
   }
 
-  .form-text-icons .label {
+  .form-text-icons .form-label {
     font-size: 15px;
   }
 
-  .form-text-icons .placeholder,
+  .form-text-icons .form-control {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .form-text-icons .btn-primary {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
   .form-text-icons .text-big {
-    font-size: 15px;
-  }
-
-  .form-text-icons .content,
-  .form-text-icons .content-2 {
-    padding: 8px 14px;
-  }
-
-  .form-text-icons .input-2 {
-    height: 150px;
-  }
-
-  .form-text-icons .inputs-button {
-    gap: 18px;
-  }
-
-  .form-text-icons .button {
-    padding: 12px 18px;
-    height: 38px;
+    font-size: 14px;
   }
 
   .form-text-icons .text-default {
@@ -332,8 +327,13 @@
   }
 
   .form-text-icons .icon-bg {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .form-text-icons .icon-bg img {
+    width: 20px;
+    height: 20px;
   }
 
   .form-text-icons .icon-text {
@@ -346,8 +346,8 @@
 }
 
 @media (max-width: 360px) {
-  .contact-section {
-    padding: 25px 10px;
+  .contact-section .container {
+    padding: 0 10px;
   }
 
   .form-text-icons {
@@ -363,32 +363,32 @@
     line-height: 32px;
   }
 
-  .form-text-icons .label {
+  .form-text-icons .form-label {
     font-size: 14px;
   }
 
-  .form-text-icons .placeholder,
-  .form-text-icons .text-big,
-  .form-text-icons .text-default {
+  .form-text-icons .form-control {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .form-text-icons .btn-primary {
+    padding: 12px 16px;
     font-size: 14px;
   }
 
-  .form-text-icons .content,
-  .form-text-icons .content-2 {
-    padding: 7px 12px;
-  }
-
-  .form-text-icons .input-2 {
-    height: 130px;
-  }
-
-  .form-text-icons .button {
-    padding: 10px 16px;
-    height: 36px;
+  .form-text-icons .text-default,
+  .form-text-icons .text-big {
+    font-size: 14px;
   }
 
   .form-text-icons .icon-bg {
     width: 32px;
     height: 32px;
+  }
+
+  .form-text-icons .icon-bg img {
+    width: 16px;
+    height: 16px;
   }
 }
