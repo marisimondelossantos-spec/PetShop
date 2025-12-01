@@ -147,6 +147,47 @@
   padding-right: 48px;
 }
 
+/* Bootstrap input-group styling for password fields */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.input-group .form-control {
+  flex: 1;
+  border-radius: 12px !important;
+}
+
+.input-group .btn-outline-secondary {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+  z-index: 10;
+  border-radius: 0 12px 12px 0;
+}
+
+.input-group .btn-outline-secondary:hover {
+  color: #F87537;
+  background: none;
+}
+
+.input-group .btn-outline-secondary:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .toggle-password {
   position: absolute;
   right: 16px;
