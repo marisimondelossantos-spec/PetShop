@@ -9,6 +9,7 @@ body {
   background-color: #f7f6f6;
   color: #333;
   line-height: 1.6;
+  font-family: var(--font-secondary);
 }
 
 .navbar {
@@ -66,6 +67,7 @@ body {
   color: #000;
   transition: color 0.3s ease;
   white-space: nowrap;
+  font-family: var(--font-primary);
 }
 
 .navbar.scrolled .logo-icon {
@@ -92,7 +94,7 @@ body {
   border: 2px solid #F87537;
   border-radius: 25px;
   color: #F87537;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-primary);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -111,7 +113,7 @@ body {
   border: none;
   border-radius: 25px;
   color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-primary);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -310,7 +312,7 @@ body {
 }
 
 .hero-text-content h3 {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-secondary);
   background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -324,7 +326,7 @@ body {
 }
 
 .hero-text-content h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-primary);
   font-size: 54px;
   font-weight: 700;
   color: #000;
@@ -334,7 +336,7 @@ body {
 }
 
 .hero-text-content p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-secondary);
   font-size: 1.1rem;
   font-weight: 400;
   max-width: 500px;
@@ -459,14 +461,14 @@ body {
 }
 
 .footer .logo-text {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   font-size: 24px;
   color: #fff;
 }
 
 .footer .home-textp {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-primary);
   font-size: 14px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.7);
@@ -508,7 +510,7 @@ body {
 }
 
 .footer .text-1 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-primary);
   font-size: 18px;
   font-weight: 700;
   color: #fff;
@@ -522,7 +524,7 @@ body {
 }
 
 .footer .footer-link {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-primary);
   font-size: 14px;
   color: #fff;
   text-decoration: none;
@@ -894,4 +896,18 @@ body {
   .hero-image {
     max-width: 240px;
   }
+}
+
+/* Focus states */
+*:focus-visible {
+    outline: 2px solid #F87537;
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #F87537;
+    outline-offset: 2px;
 }

@@ -29,7 +29,7 @@
 }
 
 .categories h1 {
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: var(--font-primary);
   font-size: 40px;
   font-weight: 600;
   color: #000;
@@ -111,14 +111,14 @@
 }
 
 .categories .product-title {
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: var(--font-primary);
   font-size: 20px;
   font-weight: bold;
   color: #000;
 }
 
 .categories .product-amount {
-  font-family: "Poppins-Regular", Helvetica;
+  font-family: var(--font-primary);
   font-size: 16px;
   color: #00000099;
 }
@@ -169,6 +169,7 @@
 }
 
 .info-text h3 {
+  font-family: var(--font-secondary);
   background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -177,6 +178,7 @@
 }
 
 .info-text h1 {
+  font-family: var(--font-primary);
   font-size: 2.8rem;
   font-weight: 700;
   color: #000;
@@ -185,6 +187,7 @@
 }
 
 .info-text p {
+  font-family: var(--font-secondary);
   font-size: 1rem;
   color: #555;
   max-width: 600px;
@@ -247,7 +250,7 @@
 }
 
 .best-selling .title-middle {
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: var(--font-secondary);
   font-weight: 600;
   color: #000;
   font-size: 40px;
@@ -308,14 +311,14 @@
 }
 
 .best-selling .product-title {
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: var(--font-primary);
   font-size: 15px;
   font-weight: bold;
   color: #000;
 }
 
 .best-selling .product-amount {
-  font-family: "Poppins-Regular", Helvetica;
+  font-family: var(--font-primary);
   font-size: 12px;
   color: #00000099;
 }
@@ -354,7 +357,7 @@
 }
 
 .shop-by-pet .text-middle {
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: var(--font-primary);
   font-weight: 600;
   color: #000;
   font-size: 40px;
@@ -402,7 +405,7 @@
 }
 
 .shop-by-pet .pet-name {
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: var(--font-primary);
   font-size: 20px;
   color: #000;
   text-align: center;
@@ -684,4 +687,18 @@
     width: 110px;
     height: 110px;
   }
+}
+
+/* Focus states */
+*:focus-visible {
+    outline: 2px solid #F87537;
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #F87537;
+    outline-offset: 2px;
 }
