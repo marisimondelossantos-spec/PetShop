@@ -14,6 +14,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/auth-modal.css">
   <style>
     :root {
       --font-primary: 'Poppins', sans-serif;
@@ -23,6 +24,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js" defer></script>
+  <script src="js/auth-modals-updated.js" defer></script>
 </head>
 
 <body>
@@ -36,323 +38,334 @@
       </div>
 
       <nav class="navbar" role="navigation" aria-label="Main navigation">
-      <div class="navbar-left">
-        <div class="logo">
-          <i class="fas fa-paw logo-icon"></i>
-          <div class="logo-text">Happy Animal</div>
-        </div>
-        <div class="search-container">
-          <input type="text" placeholder="Search products...">
-          <a href="#"><i class="fas fa-search"></i></a>
-        </div>
-      </div>
-
-      <button class="mobile-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="Shop.html">Shop</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-
-      <div class="auth-buttons">
-        <a href="login.html" class="btn-login">Log In</a>
-        <a href="signup.html" class="btn-signup">Sign Up</a>
-      </div>
-    </nav>
-
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="hero-text-content">
-            <h3>Happy Animal PetShop</h3>
-            <h1>A pet store with<br>everything you need</h1>
-            <p>
-              From daily essentials to special treats, Happy Animal Pet Shop has it all.
-              Whether your pets bark, purr, climb, or swim, you'll find everything they need
-              to live a healthier and happier life.
-            </p>
+        <div class="navbar-left">
+          <div class="logo">
+            <i class="fas fa-paw logo-icon"></i>
+            <div class="logo-text">Happy Animal</div>
           </div>
-          <a href="Shop.html" class="cta-button">Browse Now</a>
+          <div class="search-container">
+            <input type="text" placeholder="Search products...">
+            <a href="#"><i class="fas fa-search"></i></a>
+          </div>
         </div>
 
-        <div class="hero-image">
-          <img class="shape" src="assets/images/home/HeroShape.png" alt="Background shape" />
-          <img class="img" src="assets/images/home/HeroImageMain.png" alt="Dog image" />
+        <button class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="Shop.html">Shop</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="auth-buttons">
+          <a href="#" id="openLoginModal" class="btn-login">Log In</a>
+          <a href="#" id="openSignupModal" class="btn-signup">Sign Up</a>
+        </div>
+      </nav>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-text-content">
+              <h3>Happy Animal PetShop</h3>
+              <h1>A pet store with<br>everything you need</h1>
+              <p>
+                From daily essentials to special treats, Happy Animal Pet Shop has it all.
+                Whether your pets bark, purr, climb, or swim, you'll find everything they need
+                to live a healthier and happier life.
+              </p>
+            </div>
+            <a href="Shop.html" class="cta-button">Browse Now</a>
+          </div>
+
+          <div class="hero-image">
+            <img class="shape" src="assets/images/home/HeroShape.png" alt="Background shape" />
+            <img class="img" src="assets/images/home/HeroImageMain.png" alt="Dog image" />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   </header>
 
   <main>
 
-  <section class="categories">
-    <div class="container">
-      <div class="text-icons">
-        <div class="home-text">
-          <h1>Browse by category</h1>
+    <section class="categories">
+      <div class="container">
+        <div class="text-icons">
+          <div class="home-text">
+            <h1>Browse by category</h1>
+          </div>
+        </div>
+        <div class="cards">
+
+          <div class="card">
+            <div class="img"><img src="assets/images/home/accessories.png" alt="Pet accessories products" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Accessories</div>
+                <div class="product-amount">84 products</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="img-2"><img src="assets/images/home/food.png" alt="Pet food products" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Food</div>
+                <div class="product-amount">64 products</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="img-3"><img src="assets/images/home/pets.png" alt="Pets for adoption" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Pets</div>
+                <div class="product-amount">22 products</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="img-4"><img src="assets/images/home/health.png" alt="Pet health and wellness products" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Health &amp; Wellness</div>
+                <div class="product-amount">16 products</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="cards">
+    </section>
 
-        <div class="card">
-          <div class="img"><img src="assets/images/home/accessories.png" alt="Pet accessories products" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Accessories</div>
-              <div class="product-amount">84 products</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
-              </a>
-            </div>
+    <section class="info-block">
+      <div class="container">
+        <div class="text-button">
+          <div class="info-text">
+            <h3>Pet Shop</h3>
+            <h1>The smarter way to shop <br>for your pet</h1>
+            <p>At Happy Animal Pet Shop, we make shopping smarter and easier for every pet lover. From nutritious food
+              and
+              comfy essentials to toys that bring endless joy, everything is chosen with care to keep your pets happy,
+              healthy, and full of life.</p>
+            <a href="about.html" class="cta-button">Learn More</a>
           </div>
         </div>
-
-        <div class="card">
-          <div class="img-2"><img src="assets/images/home/food.png" alt="Pet food products" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Food</div>
-              <div class="product-amount">64 products</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img-3"><img src="assets/images/home/pets.png" alt="Pets for adoption" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Pets</div>
-              <div class="product-amount">22 products</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img-4"><img src="assets/images/home/health.png" alt="Pet health and wellness products" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Health &amp; Wellness</div>
-              <div class="product-amount">16 products</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="info-block">
-    <div class="container">
-      <div class="text-button">
-        <div class="info-text">
-          <h3>Pet Shop</h3>
-          <h1>The smarter way to shop <br>for your pet</h1>
-          <p>At Happy Animal Pet Shop, we make shopping smarter and easier for every pet lover. From nutritious food and
-            comfy essentials to toys that bring endless joy, everything is chosen with care to keep your pets happy,
-            healthy, and full of life.</p>
-          <a href="about.html" class="cta-button">Learn More</a>
+        <div class="shape-img">
+          <img class="shape" src="assets/images/home/AboutShape.png" />
+          <img class="img" src="assets/images/home/HeroImageMain.png" />
         </div>
       </div>
-      <div class="shape-img">
-        <img class="shape" src="assets/images/home/AboutShape.png" />
-        <img class="img" src="assets/images/home/HeroImageMain.png" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="best-selling">
-    <div class="container">
-      <div class="title-middle">Best selling products</div>
-      <div class="cards">
+    <section class="best-selling">
+      <div class="container">
+        <div class="title-middle">Best selling products</div>
+        <div class="cards">
 
-        <div class="card">
-          <div class="img"><img src="assets/images/products/smart-puzzle-toy.jpg" alt="Smart Puzzle Level 1 Dog Toy" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Smart Puzzle Level 1 Dog Toy</div>
-              <div class="product-amount">₱799</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+          <div class="card">
+            <div class="img"><img src="assets/images/products/smart-puzzle-toy.jpg"
+                alt="Smart Puzzle Level 1 Dog Toy" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Smart Puzzle Level 1 Dog Toy</div>
+                <div class="product-amount">₱799</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="img"><img src="assets/images/products/plush-elephant-toy.jpg" alt="Plush Elephant Dog Toy" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Plush Elephant Dog Toy</div>
-              <div class="product-amount">₱269</div>
+          <div class="card">
+            <div class="img"><img src="assets/images/products/plush-elephant-toy.jpg" alt="Plush Elephant Dog Toy" />
             </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img"><img src="assets/images/products/food-ball-toy.jpg" alt="Lucky Dog Food Ball Toy" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Lucky Dog Food Ball Toy</div>
-              <div class="product-amount">₱149</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Plush Elephant Dog Toy</div>
+                <div class="product-amount">₱269</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="img"><img src="assets/images/products/interactive-puzzle.jpg" alt="Interactive Puzzle Toy Level 2" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Interactive Puzzle Toy Level 2</div>
-              <div class="product-amount">₱1,299</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img"><img src="assets/images/products/travel-carrier.jpg" alt="Dog Carrier / Travel Cage" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Dog Carrier / Travel Cage</div>
-              <div class="product-amount">₱2,330</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+          <div class="card">
+            <div class="img"><img src="assets/images/products/food-ball-toy.jpg" alt="Lucky Dog Food Ball Toy" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Lucky Dog Food Ball Toy</div>
+                <div class="product-amount">₱149</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="img"><img src="assets/images/products/food-dispenser.jpg" alt="Dog Food Dispenser / Interactive Feeder" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Dog Food Dispenser / Interactive Feeder</div>
-              <div class="product-amount">₱1,200</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="img"><img src="assets/images/products/cat-tree.jpg" alt="Cat Tree / Scratching Post" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Cat Tree / Scratching Post</div>
-              <div class="product-amount">₱440</div>
-            </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+          <div class="card">
+            <div class="img"><img src="assets/images/products/interactive-puzzle.jpg"
+                alt="Interactive Puzzle Toy Level 2" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Interactive Puzzle Toy Level 2</div>
+                <div class="product-amount">₱1,299</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="img"><img src="assets/images/products/grooming-kit.jpg" alt="Pet Grooming Kit" /></div>
-          <div class="text-icon">
-            <div class="text">
-              <div class="product-title">Pet Grooming Kit</div>
-              <div class="product-amount">₱400</div>
+          <div class="card">
+            <div class="img"><img src="assets/images/products/travel-carrier.jpg" alt="Dog Carrier / Travel Cage" />
             </div>
-            <div class="icon-bg">
-              <a href="#" class="arrow-link">
-                <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Dog Carrier / Travel Cage</div>
+                <div class="product-amount">₱2,330</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+              </div>
             </div>
           </div>
-        </div>
 
-      </div>
-    </div>
-  </section>
-
-  <section class="shop-by-pet">
-    <div class="container">
-      <div class="text-icon">
-        <div class="text-middle">Shop by pet</div>
-      </div>
-      <div class="imgs-bg-text">
-
-        <div class="img-bg-text">
-          <div class="img-shape">
-            <img class="shape" src="assets/images/home/bg1.png" alt="Cat background shape" />
-            <a href="Shop.html?category=cat"><img class="img" src="assets/images/home/HeroImageMain.png" alt="Cat products" /></a>
+          <div class="card">
+            <div class="img"><img src="assets/images/products/food-dispenser.jpg"
+                alt="Dog Food Dispenser / Interactive Feeder" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Dog Food Dispenser / Interactive Feeder</div>
+                <div class="product-amount">₱1,200</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+              </div>
+            </div>
           </div>
-          <div class="pet-name">Cat</div>
-        </div>
 
-        <div class="img-bg-text">
-          <div class="img-shape">
-            <img class="shape" src="assets/images/home/bg2.png" alt="Hamster background" />
-            <a href="Shop.html?category=hamster"><img class="img" src="assets/images/home/HeroImageMain.png" alt="Hamster products" /></a>
+          <div class="card">
+            <div class="img"><img src="assets/images/products/cat-tree.jpg" alt="Cat Tree / Scratching Post" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Cat Tree / Scratching Post</div>
+                <div class="product-amount">₱440</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+              </div>
+            </div>
           </div>
-          <div class="pet-name">Hamster</div>
-        </div>
 
-        <div class="img-bg-text">
-          <div class="img-shape">
-            <img class="shape" src="assets/images/home/bg3.png" alt="Dog background" />
-            <a href="Shop.html?category=dog"><img class="img" src="assets/images/home/HeroImageMain.png" alt="Dog products" /></a>
+          <div class="card">
+            <div class="img"><img src="assets/images/products/grooming-kit.jpg" alt="Pet Grooming Kit" /></div>
+            <div class="text-icon">
+              <div class="text">
+                <div class="product-title">Pet Grooming Kit</div>
+                <div class="product-amount">₱400</div>
+              </div>
+              <div class="icon-bg">
+                <a href="#" class="arrow-link">
+                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+              </div>
+            </div>
           </div>
-          <div class="pet-name">Dog</div>
-        </div>
 
-        <div class="img-bg-text">
-          <div class="img-shape">
-            <img class="shape" src="assets/images/home/bg4.png" alt="Bird background" />
-            <a href="Shop.html?category=bird"><img class="img" src="assets/images/home/HeroImageMain.png" alt="Bird products" /></a>
-          </div>
-          <div class="pet-name">Bird</div>
-        </div>
-
-        <div class="img-bg-text">
-          <div class="img-shape">
-            <img class="shape" src="assets/images/home/bg5.png" alt="Rabbit background" />
-            <a href="Shop.html?category=rabbit"><img class="img" src="assets/images/home/HeroImageMain.png" alt="Rabbit products" /></a>
-          </div>
-          <div class="pet-name">Rabbit</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="shop-by-pet">
+      <div class="container">
+        <div class="text-icon">
+          <div class="text-middle">Shop by pet</div>
+        </div>
+        <div class="imgs-bg-text">
+
+          <div class="img-bg-text">
+            <div class="img-shape">
+              <img class="shape" src="assets/images/home/bg1.png" alt="Cat background shape" />
+              <a href="Shop.html?category=cat"><img class="img" src="assets/images/home/HeroImageMain.png"
+                  alt="Cat products" /></a>
+            </div>
+            <div class="pet-name">Cat</div>
+          </div>
+
+          <div class="img-bg-text">
+            <div class="img-shape">
+              <img class="shape" src="assets/images/home/bg2.png" alt="Hamster background" />
+              <a href="Shop.html?category=hamster"><img class="img" src="assets/images/home/HeroImageMain.png"
+                  alt="Hamster products" /></a>
+            </div>
+            <div class="pet-name">Hamster</div>
+          </div>
+
+          <div class="img-bg-text">
+            <div class="img-shape">
+              <img class="shape" src="assets/images/home/bg3.png" alt="Dog background" />
+              <a href="Shop.html?category=dog"><img class="img" src="assets/images/home/HeroImageMain.png"
+                  alt="Dog products" /></a>
+            </div>
+            <div class="pet-name">Dog</div>
+          </div>
+
+          <div class="img-bg-text">
+            <div class="img-shape">
+              <img class="shape" src="assets/images/home/bg4.png" alt="Bird background" />
+              <a href="Shop.html?category=bird"><img class="img" src="assets/images/home/HeroImageMain.png"
+                  alt="Bird products" /></a>
+            </div>
+            <div class="pet-name">Bird</div>
+          </div>
+
+          <div class="img-bg-text">
+            <div class="img-shape">
+              <img class="shape" src="assets/images/home/bg5.png" alt="Rabbit background" />
+              <a href="Shop.html?category=rabbit"><img class="img" src="assets/images/home/HeroImageMain.png"
+                  alt="Rabbit products" /></a>
+            </div>
+            <div class="pet-name">Rabbit</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 

@@ -10,14 +10,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/shop.css">
+  <link rel="stylesheet" href="css/productCard.css">
+  <link rel="stylesheet" href="css/auth-modal.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main-jquery.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth-modals-updated.js" defer></script>
   <script src="js/shop.js" defer></script>
+  <script src="js/productCard.js" defer></script>
+  <script src="js/shopLogic.js" defer></script>
+
 </head>
 
 <body>
@@ -46,8 +52,8 @@
     </div>
 
     <div class="auth-buttons">
-      <a href="login.html" class="btn-login">Log In</a>
-      <a href="signup.html" class="btn-signup">Sign Up</a>
+      <a href="#" data-auth="login" class="btn-login">Log In</a>
+      <a href="#" data-auth="signup" class="btn-signup">Sign Up</a>
     </div>
   </nav>
 
@@ -171,7 +177,7 @@
         <aside class="filters-sidebar">
           <div class="filters-header">
             <h3>Filters</h3>
-            <button class="clear-filters" style="display: none;">Clear All</button>
+            <button class="clear-filters">Clear All</button>
           </div>
 
           <!-- Active Filters Display -->
@@ -381,7 +387,394 @@
 
           <!-- Products Grid -->
           <div class="products-grid" id="products-grid">
-            <!-- Products will be dynamically inserted here -->
+            <!-- SAMPLE PRODUCT 1: Premium Dog Food -->
+            <article class="product-card" data-product-id="101" data-product-type="food" data-brand="natural-food"
+              data-price="799" data-rating="4.5" data-stock-status="in-stock" itemscope="https://schema.org/Product">
+
+              <!-- Product Badges Container (Top Left) -->
+              <div class="product-badges">
+                <span class="product-badge badge-new" aria-label="New product">New</span>
+              </div>
+
+              <!-- Wishlist Button (Top Right) -->
+              <button class="wishlist-btn" type="button" data-product-id="101"
+                aria-label="Add Premium Dog Food to wishlist" aria-pressed="false">
+                <i class="far fa-heart" aria-hidden="true"></i>
+              </button>
+
+              <!-- Product Image Area -->
+              <div class="product-image">
+                <a href="product-details.html?id=101" aria-label="View details for Premium Dog Food">
+                  <img src="assets/images/products/dog-food-premium.jpg" alt="Premium Dog Food - Chicken & Rice 5kg bag"
+                    itemprop="image" loading="lazy">
+                </a>
+
+                <!-- Quick View Button (Hidden by default, shown on hover) -->
+                <button class="quick-view-btn" type="button" data-product-id="101"
+                  aria-label="Quick view Premium Dog Food">
+                  <i class="fas fa-eye" aria-hidden="true"></i>
+                  Quick View
+                </button>
+
+                <!-- Hover Overlay -->
+                <div class="product-overlay" aria-hidden="true"></div>
+              </div>
+
+              <!-- Product Information Section -->
+              <div class="product-info">
+
+                <!-- Category & Brand Row -->
+                <div class="product-meta">
+                  <!-- Dynamic: product.Product_Type -->
+                  <span class="product-category" data-category="food" itemprop="category">FOOD</span>
+
+                  <!-- Dynamic: product.Brand with brand-specific color class -->
+                  <span class="product-brand" data-brand="natural-food" style="--brand-color: #e67e22;">Natural
+                    Food</span>
+                </div>
+
+                <!-- Product Title -->
+                <!-- Dynamic: product.Product_name -->
+                <h3 class="product-title" itemprop="name">
+                  <a href="product-details.html?id=101" aria-label="View Premium Dog Food - Chicken & Rice details">
+                    Premium Dog Food - Chicken & Rice
+                  </a>
+                </h3>
+
+                <!-- Product Rating -->
+                <div class="product-rating" itemprop="aggregateRating" itemscope
+                  itemtype="https://schema.org/AggregateRating">
+
+                  <!-- Star Display (Dynamic based on rating value) -->
+                  <div class="rating-stars" role="img" aria-label="Rated 4.5 out of 5 stars">
+                    <!-- Dynamic: Calculate filled vs empty stars based on rating -->
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                  </div>
+
+                  <!-- Rating Value -->
+                  <span class="rating-value" itemprop="ratingValue">4.5</span>
+
+                  <!-- Rating Count -->
+                  <span class="rating-count">
+                    (<span itemprop="reviewCount">120</span>)
+                  </span>
+
+                  <!-- Hidden Schema.org data -->
+                  <meta itemprop="bestRating" content="5">
+                  <meta itemprop="worstRating" content="1">
+                </div>
+
+                <!-- Price Section -->
+                <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <!-- Current Price -->
+                  <!-- Dynamic: product.Price -->
+                  <span class="current-price" itemprop="price" content="799">₱799</span>
+
+                  <!-- Original Price (Only show if discounted) -->
+                  <!-- Dynamic: Show only if originalPrice exists and differs from current price -->
+                  <!-- <span class="original-price">₱999</span> -->
+
+                  <!-- Discount Percentage Badge -->
+                  <!-- Dynamic: Calculate and show only if discount exists -->
+                  <!-- <span class="discount-percentage">-20%</span> -->
+
+                  <!-- Hidden Schema.org data -->
+                  <meta itemprop="priceCurrency" content="PHP">
+                  <link itemprop="availability" href="https://schema.org/InStock">
+                </div>
+
+                <!-- Stock Status Indicator -->
+                <!-- Dynamic: Calculate from inventory vs Reorder_Level -->
+                <!-- if inventory > Reorder_Level: "in-stock" -->
+                <!-- if inventory <= Reorder_Level && inventory > 0: "low-stock" -->
+                <!-- if inventory === 0: "out-of-stock" -->
+                <div class="stock-status in-stock" data-stock="in-stock">
+                  <i class="fas fa-circle" aria-hidden="true"></i>
+                  <span>In Stock</span>
+                </div>
+
+                <!-- Product Actions -->
+                <div class="product-actions">
+
+                  <!-- Add to Cart Button (Primary Action) -->
+                  <button class="add-to-cart-btn" type="button" data-product-id="101"
+                    data-product-name="Premium Dog Food - Chicken & Rice" data-price="799"
+                    data-image="assets/images/products/dog-food-premium.jpg" aria-label="Add Premium Dog Food to cart">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="btn-text">Add to Cart</span>
+                  </button>
+
+                  <!-- Secondary Actions Row -->
+                  <div class="secondary-actions">
+
+                    <!-- View Details Button -->
+                    <a href="product-details.html?id=101" class="view-details-btn"
+                      aria-label="View full details for Premium Dog Food">
+                      <i class="fas fa-eye" aria-hidden="true"></i>
+                      <span class="btn-text">Details</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hidden Description for Quick View Modal -->
+              <div class="product-description-hidden" style="display: none;" itemprop="description">
+                <!-- Dynamic: product.Description -->
+                High-quality premium dog food made with real chicken and rice. Grain-free formula with added vitamins
+                and minerals for optimal health. Suitable for adult dogs of all breeds.
+              </div>
+
+              <!-- Hidden ProductID for backend operations -->
+              <input type="hidden" class="product-id-hidden" value="101">
+            </article>
+
+            <!-- SAMPLE PRODUCT 2: Interactive Toy - ON SALE -->
+            <article class="product-card" data-product-id="205" data-product-type="toys" data-brand="pet-care"
+              data-price="299" data-rating="4.8" data-original-price="499" data-discount="40"
+              data-stock-status="low-stock" itemscope itemtype="https://schema.org/Product">
+
+              <!-- Product Badges Container (Top Left) -->
+              <div class="product-badges">
+                <!-- Sale Badge - Visible when product is on sale -->
+                <span class="product-badge badge-sale" aria-label="On sale">Sale</span>
+
+                <!-- Could also show low stock badge if desired -->
+                <!-- <span class="product-badge badge-low-stock" aria-label="Low stock">Low Stock</span> -->
+              </div>
+
+              <!-- Wishlist Button (Top Right) -->
+              <button class="wishlist-btn active" type="button" data-product-id="205"
+                aria-label="Remove Interactive Rope Toy from wishlist" aria-pressed="true">
+                <i class="fas fa-heart" aria-hidden="true"></i>
+              </button>
+
+              <!-- Product Image Area -->
+              <div class="product-image">
+                <a href="product-details.html?id=205" aria-label="View details for Interactive Rope Toy">
+                  <img src="assets/images/products/interactive-dog-toy.jpg"
+                    alt="Interactive Rope Toy for Dogs - Durable Cotton Material" itemprop="image" loading="lazy">
+                </a>
+
+                <!-- Quick View Button -->
+                <button class="quick-view-btn" type="button" data-product-id="205"
+                  aria-label="Quick view Interactive Rope Toy">
+                  <i class="fas fa-eye" aria-hidden="true"></i>
+                  Quick View
+                </button>
+
+                <!-- Hover Overlay -->
+                <div class="product-overlay" aria-hidden="true"></div>
+              </div>
+
+              <!-- Product Information Section -->
+              <div class="product-info">
+
+                <!-- Category & Brand Row -->
+                <div class="product-meta">
+                  <!-- Dynamic: product.Product_Type = "toys" -->
+                  <span class="product-category" data-category="toys" itemprop="category">TOYS</span>
+
+                  <!-- Dynamic: product.Brand = "pet-care" with brand color -->
+                  <span class="product-brand" data-brand="pet-care" style="--brand-color: #2ecc71;">Pet Care</span>
+                </div>
+
+                <!-- Product Title -->
+                <h3 class="product-title" itemprop="name">
+                  <a href="product-details.html?id=205" aria-label="View Interactive Rope Toy for Dogs details">
+                    Interactive Rope Toy for Dogs
+                  </a>
+                </h3>
+
+                <!-- Product Rating -->
+                <div class="product-rating" itemprop="aggregateRating" itemscope
+                  itemtype="https://schema.org/AggregateRating">
+
+                  <!-- Star Display -->
+                  <div class="rating-stars" role="img" aria-label="Rated 4.8 out of 5 stars">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                  </div>
+
+                  <!-- Rating Value -->
+                  <span class="rating-value" itemprop="ratingValue">4.8</span>
+                  <span class="rating-count">
+                    (<span itemprop="reviewCount">89</span>)
+                  </span>
+
+                  <meta itemprop="bestRating" content="5">
+                  <meta itemprop="worstRating" content="1">
+                </div>
+
+                <!-- Price Section WITH DISCOUNT -->
+                <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <!-- Current/Sale Price -->
+                  <span class="current-price" itemprop="price" content="299">₱299</span>
+
+                  <!-- Original Price (Strikethrough) -->
+                  <span class="original-price">₱499</span>
+
+                  <!-- Discount Percentage Badge -->
+                  <span class="discount-percentage">-40%</span>
+
+                  <meta itemprop="priceCurrency" content="PHP">
+                  <link itemprop="availability" href="https://schema.org/LimitedAvailability">
+                </div>
+
+                <!-- Low Stock Status -->
+                <div class="stock-status low-stock" data-stock="low-stock">
+                  <i class="fas fa-circle" aria-hidden="true"></i>
+                  <span>Low Stock</span>
+                </div>
+
+                <!-- Product Actions -->
+                <div class="product-actions">
+
+                  <!-- Add to Cart Button ENABLED for low-stock -->
+                  <button class="add-to-cart-btn" type="button" data-product-id="205"
+                    data-product-name="Interactive Rope Toy for Dogs" data-price="299"
+                    data-image="assets/images/products/rope-toy-interactive.jpg"
+                    aria-label="Add Interactive Rope Toy to cart">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="btn-text">Add to Cart</span>
+                  </button>
+
+                  <div class="secondary-actions">
+                    <a href="product-details.html?id=205" class="view-details-btn"
+                      aria-label="View full details for Interactive Rope Toy">
+                      <i class="fas fa-eye" aria-hidden="true"></i>
+                      <span class="btn-text">Details</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-description-hidden" style="display: none;" itemprop="description">
+                Durable cotton rope toy perfect for interactive play and dental health. Multi-colored design with strong
+                knots. Ideal for medium to large dogs. Machine washable.
+              </div>
+
+              <input type="hidden" class="product-id-hidden" value="205">
+            </article>
+
+            <!-- SAMPLE PRODUCT 3: Out of Stock Pet Item -->
+            <article class="product-card out-of-stock-card" data-product-id="312" data-product-type="clothing"
+              data-brand="dogs-friend" data-price="599" data-rating="4.2" data-stock-status="out-of-stock" itemscope
+              itemtype="https://schema.org/Product">
+
+              <!-- Product Badges -->
+              <div class="product-badges">
+                <span class="product-badge badge-out-of-stock" aria-label="Out of stock">Out of Stock</span>
+              </div>
+
+              <!-- Wishlist Button -->
+              <button class="wishlist-btn" type="button" data-product-id="312"
+                aria-label="Add Waterproof Dog Jacket to wishlist" aria-pressed="false">
+                <i class="far fa-heart" aria-hidden="true"></i>
+              </button>
+
+              <!-- Product Image (Semi-transparent when out of stock) -->
+              <div class="product-image">
+                <a href="product-details.html?id=312" aria-label="View details for Waterproof Dog Jacket">
+                  <img src="assets/images/products/dog-jacket-waterproof.jpg"
+                    alt="Waterproof Dog Jacket - Red Medium Size" itemprop="image" loading="lazy">
+                </a>
+
+                <!-- Quick View still available -->
+                <button class="quick-view-btn" type="button" data-product-id="312"
+                  aria-label="Quick view Waterproof Dog Jacket">
+                  <i class="fas fa-eye" aria-hidden="true"></i>
+                  Quick View
+                </button>
+
+                <!-- Hover Overlay -->
+                <div class="product-overlay" aria-hidden="true"></div>
+              </div>
+
+              <!-- Product Information -->
+              <div class="product-info">
+
+                <div class="product-meta">
+                  <!-- Dynamic: product.Product_Type = "clothing" -->
+                  <span class="product-category" data-category="clothing" itemprop="category">CLOTHING</span>
+
+                  <!-- Dynamic: product.Brand = "dogs-friend" with brand color -->
+                  <span class="product-brand" data-brand="dogs-friend" style="--brand-color: #1abc9c;">Dogs
+                    Friend</span>
+                </div>
+
+                <h3 class="product-title" itemprop="name">
+                  <a href="product-details.html?id=312" aria-label="View Waterproof Dog Jacket details">
+                    Waterproof Dog Jacket - Red
+                  </a>
+                </h3>
+
+                <div class="product-rating" itemprop="aggregateRating" itemscope
+                  itemtype="https://schema.org/AggregateRating">
+                  <div class="rating-stars" role="img" aria-label="Rated 4.2 out of 5 stars">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <i class="far fa-star" aria-hidden="true"></i>
+                  </div>
+
+                  <span class="rating-value" itemprop="ratingValue">4.2</span>
+                  <span class="rating-count">
+                    (<span itemprop="reviewCount">34</span>)
+                  </span>
+
+                  <meta itemprop="bestRating" content="5">
+                  <meta itemprop="worstRating" content="1">
+                </div>
+
+                <div class="product-price" itemprop="offers" itemtype="https://schema.org/Offer">
+                  <span class="current-price" itemprop="price" content="599">₱599</span>
+
+                  <meta itemprop="priceCurrency" content="PHP">
+                  <link itemprop="availability" href="https://schema.org/OutOfStock">
+                </div>
+
+                <!-- Out of Stock Status -->
+                <div class="stock-status out-of-stock" data-stock="out-of-stock">
+                  <i class="fas fa-circle" aria-hidden="true"></i>
+                  <span>Out of Stock</span>
+                </div>
+
+                <!-- Product Actions -->
+                <div class="product-actions">
+
+                  <!-- Add to Cart Button DISABLED -->
+                  <button class="add-to-cart-btn" type="button" data-product-id="312" disabled
+                    aria-label="Product out of stock">
+                    <i class="fas fa-ban" aria-hidden="true"></i>
+                    <span class="btn-text">Out of Stock</span>
+                  </button>
+
+                  <div class="secondary-actions">
+                    <a href="product-details.html?id=312" class="view-details-btn"
+                      aria-label="View full details for Waterproof Dog Jacket">
+                      <i class="fas fa-eye" aria-hidden="true"></i>
+                      <span class="btn-text">Details</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-description-hidden" style="display: none;" itemprop="description">
+                Stylish waterproof jacket to keep your dog dry during rainy walks. Adjustable straps for perfect fit.
+                Available in multiple sizes. Reflective strips for night visibility.
+              </div>
+
+              <input type="hidden" class="product-id-hidden" value="312">
+            </article>
+            <!-- Product cards will be dynamically loaded here -->
           </div>
 
           <!-- Pagination -->
@@ -405,10 +798,138 @@
     </div>
   </div>
 
+  <!-- PRODUCT DETAILS MODAL -->
+  <div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductTitle">
+    <div class="-shop-modal-overlay"></div>
+    <div class="shop-modal-container">
+      <button class="shop-modal-close" type="button" aria-label="Close product details">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="shop-modal-content">
+        <!-- Left Side: Images -->
+        <div class="shop-modal-images">
+          <div class="shop-modal-main-image-container">
+            <img id="shop-modal-main-image" src="" alt="" class="shop-modal-main-image">
+            <div class="shop-modal-badges">
+              <!-- Badges will be inserted here -->
+            </div>
+          </div>
+          <div class="image-thumbnails">
+            <!-- Thumbnails will be inserted here -->
+          </div>
+        </div>
+
+        <!-- Right Side: Product Info -->
+        <div class="shop-modal-details">
+          <div class="shop-modal-header">
+            <div class="shop-modal-meta">
+              <span class="shop-modal-category"></span>
+              <span class="shop-modal-brand"></span>
+            </div>
+            <h2 id="shop-modal-product-title" class="shop-modal-title"></h2>
+
+            <div class="shop-modal-rating">
+              <div class="shop-modal-rating-stars"></div>
+              <span class="shop-modal-rating-value"></span>
+              <span class="shop-modal-rating-count"></span>
+            </div>
+          </div>
+
+          <div class="shop-modal-price-section">
+            <div class="shop-modal-price">
+              <span class="shop-modal-current-price"></span>
+              <span class="shop-modal-original-price" style="display: none;"></span>
+              <span class="shop-modal-discount-percentage" style="display: none;"></span>
+            </div>
+            <div class="stock-status"></div>
+          </div>
+
+          <div class="shop-modal-actions-top">
+            <button class="shop-modal-wishlist-btn" type="button" aria-label="Add to wishlist">
+              <i class="far fa-heart"></i>
+              <span>Add to Wishlist</span>
+            </button>
+          </div>
+
+          <div class="shop-modal-quantity-section">
+            <label for="shop-modal-quantity">Quantity:</label>
+            <div class="quantity-controls">
+              <button type="button" class="qty-btn minus" aria-label="Decrease quantity">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input type="number" id="shop-modal-quantity" class="quantity-input" value="1" min="1" max="99">
+              <button type="button" class="qty-btn plus" aria-label="Increase quantity">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <button class="shop-modal-add-to-cart" type="button">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="btn-text">Add to Cart</span>
+          </button>
+
+          <!-- Tabs -->
+          <div class="shop-modal-tabs">
+            <div class="tab-buttons">
+              <button class="tab-btn active" data-tab="description">Description</button>
+              <button class="tab-btn" data-tab="info">Additional Info</button>
+              <button class="tab-btn" data-tab="reviews">Reviews</button>
+            </div>
+
+            <div class="tab-content">
+              <div class="tab-panel active" data-panel="description">
+                <div class="description-content"></div>
+              </div>
+
+              <div class="tab-panel" data-panel="info">
+                <table class="info-table">
+                  <tbody>
+                    <tr>
+                      <th>Product ID:</th>
+                      <td class="info-id"></td>
+                    </tr>
+                    <tr>
+                      <th>Category:</th>
+                      <td class="info-category"></td>
+                    </tr>
+                    <tr>
+                      <th>Brand:</th>
+                      <td class="info-brand"></td>
+                    </tr>
+                    <tr>
+                      <th>Stock Status:</th>
+                      <td class="info-stock"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="tab-panel" data-panel="reviews">
+                <div class="reviews-summary">
+                  <div class="reviews-rating">
+                    <div class="big-rating"></div>
+                    <div class="rating-stars"></div>
+                    <p class="reviews-count"></p>
+                  </div>
+                </div>
+                <div class="reviews-list">
+                  <p class="no-reviews">No reviews yet. Be the first to review this product!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="icons-text">
+        <!-- Column 1: Logo & Description -->
         <div class="logo-text-icons">
           <div class="logo">
             <i class="fas fa-paw logo-icon"></i>
@@ -419,52 +940,69 @@
             Thank you for stopping by, and remember: a happy pet makes a happy home.
           </p>
           <div class="social-icons">
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <a href="https://facebook.com" target="_blank">
               <img src="assets/images/home/footer/facebook.png" alt="Facebook" />
             </a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <a href="https://instagram.com" target="_blank">
               <img src="assets/images/home/footer/instagram.png" alt="Instagram" />
             </a>
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <a href="https://twitter.com" target="_blank">
               <img src="assets/images/home/footer/x.png" alt="Twitter" />
             </a>
           </div>
         </div>
 
+        <!-- Column 2: Shop Links -->
         <div class="text">
-          <div class="text-1">Company</div>
+          <h3 class="text-1">Shop</h3>
+          <div class="text-2">
+            <a href="Shop.html" class="footer-link">All Products</a>
+            <a href="Shop.html" class="footer-link">Food</a>
+            <a href="Shop.html" class="footer-link">Toys</a>
+            <a href="Shop.html" class="footer-link">Bowls</a>
+            <a href="Shop.html" class="footer-link">Clothing</a>
+          </div>
+        </div>
+
+        <!-- Column 3: Company Links -->
+        <div class="text">
+          <h3 class="text-1">Company</h3>
           <div class="text-2">
             <a href="about.html" class="footer-link">About Us</a>
           </div>
         </div>
 
+        <!-- Column 4: Social Links -->
         <div class="text">
-          <div class="text-1">Useful Links</div>
-          <div class="text-2">
-            <a href="new-products.html" class="footer-link">New products</a>
-            <a href="best-sellers.html" class="footer-link">Best sellers</a>
-            <a href="faq.html" class="footer-link">F.A.Q</a>
+          <h3 class="text-1">Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank">
+              <img src="assets/images/home/footer/facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+              <img src="assets/images/home/footer/instagram.png" alt="Instagram" />
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+              <img src="assets/images/home/footer/x.png" alt="Twitter" />
+            </a>
           </div>
         </div>
 
+        <!-- Column 5: Contact Info -->
         <div class="text">
-          <div class="text-1">Customer Service</div>
-          <div class="text-2">
-            <a href="contact.html" class="footer-link">Contact Us</a>
-          </div>
-        </div>
-
-        <div class="text">
-          <div class="text-1">Store</div>
-          <div class="text">
+          <h3 class="text-2">Contact Information:</h3>
+          <div class="text-3">
             <a href="https://maps.google.com/?q=Abella+Bldg+Elias+Angeles+St+Sta+Cruz" target="_blank"
               class="footer-link">Abella Bldg. Elias Angeles St., Sta.Cruz</a>
-            <div class="text-3">
-              <a href="tel:09989898301" class="footer-link">0998 989 8301</a>
-              <a href="mailto:john.tuazon24@yahoo.com" class="footer-link">john.tuazon24@yahoo.com</a>
-            </div>
+            <a href="tel:09989898301" class="footer-link">0998 989 8301</a>
+            <a href="mailto:john.tuazon24@yahoo.com" class="footer-link">john.tuazon24@yahoo.com</a>
           </div>
         </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 Happy Animal Pet Shop. All rights reserved.</p>
       </div>
     </div>
   </footer>

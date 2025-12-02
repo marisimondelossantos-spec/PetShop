@@ -1,0 +1,499 @@
+/* ============================================
+   AUTH MODAL CSS - Following Shop Design Rules
+   ============================================ */
+
+/* Modal Backdrop - Same as product modal */
+.auth-modal-isolated .modal.show {
+    background: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* Modal Dialog - Increased width for signup */
+.auth-modal-isolated .modal-dialog {
+    max-width: 600px !important;
+    margin: 2rem auto !important;
+}
+
+/* Modal Content - Following shop design patterns */
+.auth-modal-isolated .modal-content {
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+    overflow: hidden !important;
+}
+
+/* Modal Header - Shop style */
+.auth-modal-isolated .modal-header {
+    background: linear-gradient(135deg, #F87537 0%, #FBA81F 100%) !important;
+    border-bottom: none !important;
+    padding: 2rem 2rem 1.5rem !important;
+    text-align: center !important;
+    position: relative !important;
+}
+
+.auth-modal-isolated .modal-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+}
+
+/* Paw Icon in Title */
+.auth-modal-isolated .modal-title .fa-paw {
+    font-size: 24px !important;
+    color: #ffffff !important;
+    animation: pawBounce 2s ease-in-out infinite !important;
+}
+
+@keyframes pawBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Close Button - Shop style circular button */
+.auth-modal-isolated .btn-close {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50% !important;
+    opacity: 1 !important;
+    transition: all 0.3s ease !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.auth-modal-isolated .btn-close:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: rotate(90deg) !important;
+}
+
+/* Modal Body - Clean padding */
+.auth-modal-isolated .modal-body {
+    padding: 2rem !important;
+    background: #ffffff !important;
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+}
+
+/* Bootstrap Row/Column Support */
+.auth-modal-isolated .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-left: -0.5rem !important;
+    margin-right: -0.5rem !important;
+}
+
+.auth-modal-isolated .col-md-3,
+.auth-modal-isolated .col-md-4,
+.auth-modal-isolated .col-md-6 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    flex: 0 0 auto !important;
+}
+
+.auth-modal-isolated .col-md-6 {
+    width: 50% !important;
+}
+
+.auth-modal-isolated .col-md-4 {
+    width: 33.333333% !important;
+}
+
+.auth-modal-isolated .col-md-3 {
+    width: 25% !important;
+}
+
+/* Form Controls - Shop design system */
+.auth-modal-isolated .form-label {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+}
+
+.auth-modal-isolated .form-control,
+.auth-modal-isolated select.form-control {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
+    padding: 12px 16px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    color: #000 !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.auth-modal-isolated .form-control:focus,
+.auth-modal-isolated select.form-control:focus {
+    border-color: #F87537 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(248, 117, 55, 0.1) !important;
+    background: #ffffff !important;
+}
+
+.auth-modal-isolated .form-control::placeholder {
+    color: #999 !important;
+    opacity: 1 !important;
+}
+
+/* Form Text - For hints like "Format: 11 digits" */
+.auth-modal-isolated .form-text,
+.auth-modal-isolated small.form-text {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 12px !important;
+    color: #666 !important;
+    margin-top: 0.25rem !important;
+    display: block !important;
+}
+
+/* Required field asterisk */
+.auth-modal-isolated .text-danger {
+    color: #ff4757 !important;
+}
+
+/* Address Section Styling */
+.auth-modal-isolated .address-section {
+    margin-top: 1.5rem !important;
+    padding-top: 1.5rem !important;
+    border-top: 2px solid #f0f0f0 !important;
+}
+
+.auth-modal-isolated .address-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #F87537 !important;
+    margin-bottom: 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.auth-modal-isolated .address-title::before {
+    font-size: 18px !important;
+}
+
+/* Input Group - Password toggle button */
+.auth-modal-isolated .input-group {
+    position: relative !important;
+    display: flex !important;
+    width: 100% !important;
+}
+
+.auth-modal-isolated .input-group .form-control {
+    flex: 1 !important;
+    padding-right: 48px !important;
+}
+
+.auth-modal-isolated .input-group .btn {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    height: 100% !important;
+    width: 48px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    color: #999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: color 0.3s ease !important;
+    box-shadow: none !important;
+}
+
+.auth-modal-isolated .input-group .btn:hover {
+    color: #F87537 !important;
+    background: transparent !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.auth-modal-isolated .input-group .btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Checkboxes - Shop style */
+.auth-modal-isolated .form-check {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    margin-bottom: 1rem !important;
+}
+
+.auth-modal-isolated .form-check-input {
+    width: 18px !important;
+    height: 18px !important;
+    margin-top: 2px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+}
+
+.auth-modal-isolated .form-check-input:checked {
+    background-color: #F87537 !important;
+    border-color: #F87537 !important;
+}
+
+.auth-modal-isolated .form-check-input:focus {
+    border-color: #F87537 !important;
+    box-shadow: 0 0 0 3px rgba(248, 117, 55, 0.1) !important;
+}
+
+.auth-modal-isolated .form-check-label {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    color: #666 !important;
+    cursor: pointer !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+}
+
+/* Primary Button - Shop orange gradient */
+.auth-modal-isolated .btn-primary {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    padding: 14px 24px !important;
+    background: linear-gradient(135deg, #F87537 0%, #FBA81F 100%) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(248, 117, 55, 0.3) !important;
+    width: 100% !important;
+    height: auto !important;
+    text-align: center !important;
+    text-transform: none !important;
+    letter-spacing: 0.3px !important;
+}
+
+.auth-modal-isolated .btn-primary:hover {
+    background: linear-gradient(135deg, #e66428 0%, #f39c12 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(248, 117, 55, 0.4) !important;
+}
+
+.auth-modal-isolated .btn-primary:active {
+    transform: translateY(0) !important;
+}
+
+.auth-modal-isolated .btn-primary:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(248, 117, 55, 0.2), 0 6px 20px rgba(248, 117, 55, 0.4) !important;
+}
+
+/* Auth Links - Shop orange color */
+.auth-modal-isolated .auth-link {
+    color: #F87537 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: color 0.3s ease !important;
+}
+
+.auth-modal-isolated .auth-link:hover {
+    color: #e66428 !important;
+    text-decoration: underline !important;
+}
+
+/* Text Styling */
+.auth-modal-isolated .text-center {
+    text-align: center !important;
+}
+
+.auth-modal-isolated .text-center p {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    color: #666 !important;
+    margin: 0 !important;
+}
+
+/* Margin Bottom Utilities */
+.auth-modal-isolated .mb-3 {
+    margin-bottom: 1.25rem !important;
+}
+
+.auth-modal-isolated .mt-3 {
+    margin-top: 1.25rem !important;
+}
+
+/* Form Container Transitions */
+.auth-modal-isolated .auth-form-container {
+    animation: fadeIn 0.3s ease !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    .auth-modal-isolated .modal-dialog {
+        max-width: calc(100% - 2rem) !important;
+        margin: 1rem auto !important;
+    }
+
+    .auth-modal-isolated .modal-header {
+        padding: 1.5rem 1.5rem 1.25rem !important;
+    }
+
+    .auth-modal-isolated .modal-title {
+        font-size: 24px !important;
+    }
+
+    .auth-modal-isolated .modal-body {
+        padding: 1.5rem !important;
+    }
+
+    .auth-modal-isolated .btn-close {
+        top: 16px !important;
+        right: 16px !important;
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    /* Stack columns on mobile */
+    .auth-modal-isolated .col-md-3,
+    .auth-modal-isolated .col-md-4,
+    .auth-modal-isolated .col-md-6 {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-modal-isolated .modal-dialog {
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .auth-modal-isolated .modal-content {
+        border-radius: 0 !important;
+        min-height: 100vh !important;
+    }
+
+    .auth-modal-isolated .modal-header {
+        padding: 1.25rem 1rem 1rem !important;
+    }
+
+    .auth-modal-isolated .modal-title {
+        font-size: 22px !important;
+    }
+
+    .auth-modal-isolated .modal-body {
+        padding: 1.25rem !important;
+    }
+
+    .auth-modal-isolated .form-control {
+        font-size: 16px !important;
+        padding: 10px 14px !important;
+    }
+
+    .auth-modal-isolated .btn-primary {
+        padding: 12px 20px !important;
+        font-size: 15px !important;
+    }
+}
+
+/* Smooth Modal Animations */
+.auth-modal-isolated .modal.fade .modal-dialog {
+    transform: scale(0.9) translateY(-20px) !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+}
+
+.auth-modal-isolated .modal.show .modal-dialog {
+    transform: scale(1) translateY(0) !important;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden !important;
+}
+
+/* Focus States - Shop style */
+.auth-modal-isolated *:focus-visible {
+    outline: 2px solid #F87537 !important;
+    outline-offset: 2px !important;
+}
+
+/* Error Messages */
+.auth-modal-isolated .error-message {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 12px !important;
+    color: #ff4757 !important;
+    margin-top: 0.25rem !important;
+    display: block !important;
+}
+
+/* Success Messages */
+.auth-modal-isolated .success-message {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 12px !important;
+    color: #2ecc71 !important;
+    margin-top: 0.25rem !important;
+    display: block !important;
+}
+
+/* Loading State */
+.auth-modal-isolated .btn-primary:disabled {
+    background: #ccc !important;
+    cursor: not-allowed !important;
+    opacity: 0.7 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Additional Polish */
+.auth-modal-isolated .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* Typography Consistency */
+.auth-modal-isolated h1,
+.auth-modal-isolated h2,
+.auth-modal-isolated h3,
+.auth-modal-isolated h4,
+.auth-modal-isolated h5,
+.auth-modal-isolated h6,
+.auth-modal-isolated p,
+.auth-modal-isolated a,
+.auth-modal-isolated button,
+.auth-modal-isolated input,
+.auth-modal-isolated select,
+.auth-modal-isolated label,
+.auth-modal-isolated span {
+    font-family: 'Poppins', sans-serif !important;
+}

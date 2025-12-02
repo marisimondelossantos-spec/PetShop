@@ -88,42 +88,49 @@ body {
   flex-shrink: 0;
 }
 
+/* Force navbar auth buttons to override shop.css styles */
+.navbar .auth-buttons .btn-login,
+.navbar .auth-buttons .btn-signup {
+  padding: 10px 20px !important;
+  font-family: var(--font-primary) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  border-radius: 25px !important;
+
+
+}
+
 .navbar .auth-buttons .btn-login {
-  padding: 10px 20px;
-  background: transparent;
-  border: 2px solid #F87537;
-  border-radius: 25px;
-  color: #F87537;
-  font-family: var(--font-primary);
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  background: transparent !important;
+  border: 2px solid #F87537 !important;
+
+
+  color: #F87537 !important;
 }
 
 .navbar .auth-buttons .btn-login:hover {
-  background: #F87537;
-  color: #fff;
+  background: #F87537 !important;
+
+
+  color: #fff !important;
 }
 
 .navbar .auth-buttons .btn-signup {
-  padding: 10px 20px;
-  background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%);
-  border: none;
-  border-radius: 25px;
-  color: #fff;
-  font-family: var(--font-primary);
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%) !important;
+  border: none !important;
+
+
+  color: #fff !important;
 }
 
 .navbar .auth-buttons .btn-signup:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(248, 117, 55, 0.4);
+  transform: translateY(-2px) !important;
+
+
+  box-shadow: 0 4px 12px rgba(248, 117, 55, 0.4) !important;
 }
 
 .navbar .nav-links a {
@@ -132,17 +139,27 @@ body {
   font-weight: 500;
   font-size: 16px;
   padding: 8px 0;
+
+
+
+
   position: relative;
   transition: color 0.3s;
 }
 
 .navbar .nav-links a:hover {
+
+
+
+
   color: #F87537;
   transform: scale(1.1);
 }
 
 .navbar .nav-links a.active {
   color: #F87537;
+
+
   font-weight: 600;
 }
 
@@ -900,14 +917,20 @@ body {
 
 /* Focus states */
 *:focus-visible {
-    outline: 2px solid #F87537;
-    outline-offset: 2px;
+  outline: 2px solid #F87537;
+
+
+
+  outline-offset: 2px;
 }
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible {
-    outline: 2px solid #F87537;
-    outline-offset: 2px;
+  outline: 2px solid #F87537;
+
+
+
+  outline-offset: 2px;
 }

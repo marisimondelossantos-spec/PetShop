@@ -13,11 +13,16 @@
     rel="stylesheet">
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/auth-modal.css">
   <link rel="icon" type="image/png" href="assets/images/contact_logo.png">
   <title>Contact - Happy Animal Pet Shop</title>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main-jquery.js"></script>
+  <script src="js/auth-modals-updated.js" defer></script>
+  <script src="js/contact.js" defer></script>
+  <script src="js/main.js" defer></script>
+
 </head>
 
 <body>
@@ -46,8 +51,8 @@
     </div>
 
     <div class="auth-buttons">
-      <a href="login.html" class="btn-login">Log In</a>
-      <a href="signup.html" class="btn-signup">Sign Up</a>
+      <a href="#" id="openLoginModal" class="btn-login">Log In</a>
+      <a href="#" id="openSignupModal" class="btn-signup">Sign Up</a>
     </div>
   </nav>
 
@@ -73,8 +78,8 @@
             </div>
             <div class="mb-3">
               <label class="form-label" for="message">Message</label>
-              <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us how we can help..."
-                required></textarea>
+              <textarea id="message" name="message" class="form-control" rows="5"
+                placeholder="Tell us how we can help..." required></textarea>
             </div>
             <button type="submit" class="btn btn-primary w-100">
               Send Message
@@ -152,11 +157,7 @@
             <div class="text-3"><a href="tel:09989898301" class="footer-link">0998 989 8301</a><a
                 href="mailto:john.tuazon24@yahoo.com" class="footer-link">john.tuazon24@yahoo.com</a></div>
           </div>
-        </div>
-      </div>
-    </div>
   </footer>
-
 </body>
 
 </html>
