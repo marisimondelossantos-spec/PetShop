@@ -1,0 +1,67 @@
+/* ================================= */
+/* CSS CUSTOM PROPERTIES (VARIABLES) */
+/* ================================= */
+
+:root {
+  /* FONT FAMILIES */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  --font-mono: 'Courier New', monospace;
+
+  /* BRAND COLORS */
+  --primary-orange: #F87537;
+  --primary-orange-dark: #e66428;
+  --primary-orange-light: #fff5f0;
+  --primary-orange-border: #ffe5d4;
+  --primary-yellow: #FBA81F;
+
+  /* STATUS COLORS */
+  --success-green: #2ecc71;
+  --warning-orange: #f39c12;
+  --danger-red: #e74c3c;
+  --sale-red: #ff4757;
+  --out-of-stock: #95a5a6;
+
+  /* NEUTRAL GRAYS */
+  --gray-50: #f8f9fa;
+  --gray-100: #f0f0f0;
+  --gray-200: #e0e0e0;
+  --gray-300: #ddd;
+  --gray-400: #ccc;
+  --gray-500: #999;
+  --gray-600: #666;
+  --gray-700: #333;
+  --gray-900: #000;
+  --white: #fff;
+
+  /* BACKGROUND COLORS */
+  --bg-body: #f7f6f6;
+  --bg-white: #fff;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* SIZING */
+  --navbar-height: 88px;
+  --navbar-scrolled: 28px;
+  --container-max-width: 1920px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 40px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+  /* TRANSITIONS */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Z-INDEX SCALE */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}

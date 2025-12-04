@@ -1,12 +1,12 @@
 // Auth Form Validation
-document.addEventListener('DOMContentLoaded', function() {
-  
+document.addEventListener('DOMContentLoaded', function () {
+
   // Signup Form Validation
   const signupForm = document.getElementById('signupForm');
   if (signupForm) {
     initSignupValidation(signupForm);
   }
-  
+
   // Login Form Validation
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function initPasswordToggles() {
   const toggleButtons = document.querySelectorAll('.toggle-password');
   toggleButtons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
       const input = this.parentElement.querySelector('input');
       const icon = this.querySelector('i');
-      
+
       if (input.type === 'password') {
         input.type = 'text';
         icon.classList.remove('fa-eye');
@@ -103,11 +103,11 @@ function initSignupValidation(form) {
   Object.keys(fields).forEach(fieldName => {
     const input = document.getElementById(fieldName);
     if (input) {
-      input.addEventListener('blur', function() {
+      input.addEventListener('blur', function () {
         validateSignupField(fieldName, this, fields[fieldName]);
       });
 
-      input.addEventListener('input', function() {
+      input.addEventListener('input', function () {
         if (this.classList.contains('error')) {
           validateSignupField(fieldName, this, fields[fieldName]);
         }
@@ -116,7 +116,7 @@ function initSignupValidation(form) {
   });
 
   // Form submit validation
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
     let isValid = true;
 
@@ -239,11 +239,11 @@ function initLoginValidation(form) {
 
   // Real-time validation on blur
   if (emailInput) {
-    emailInput.addEventListener('blur', function() {
+    emailInput.addEventListener('blur', function () {
       validateLoginEmail(this);
     });
 
-    emailInput.addEventListener('input', function() {
+    emailInput.addEventListener('input', function () {
       if (this.classList.contains('error')) {
         validateLoginEmail(this);
       }
@@ -251,11 +251,11 @@ function initLoginValidation(form) {
   }
 
   if (passwordInput) {
-    passwordInput.addEventListener('blur', function() {
+    passwordInput.addEventListener('blur', function () {
       validateLoginPassword(this);
     });
 
-    passwordInput.addEventListener('input', function() {
+    passwordInput.addEventListener('input', function () {
       if (this.classList.contains('error')) {
         validateLoginPassword(this);
       }
@@ -263,7 +263,7 @@ function initLoginValidation(form) {
   }
 
   // Form submit validation
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
     let isValid = true;
 

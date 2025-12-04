@@ -1,0 +1,38 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <div class="logo">
+      <i class="fas fa-paw logo-icon"></i>
+      <div class="logo-text">Happy Animal</div>
+    </div>
+    <div class="search-container">
+      <input type="text" id="product-search" placeholder="Search products...">
+      <a href="#"><i class="fas fa-search"></i></a>
+    </div>
+  </div>
+
+  <button class="mobile-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="service.html">Services</a> <!-- NEW LINK -->
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="auth-buttons">
+    <!-- Unauthenticated State -->
+    <a href="#" data-auth="login" class="btn-login">Log In</a>
+    <a href="#" data-auth="signup" class="btn-signup">Sign Up</a>
+    <!-- Authenticated State (Hidden by default via CSS) -->
+    <div class="user-menu">
+      <div class="user-greeting">Hi, User!</div>
+      <a href="profile.html" class="btn-profile">
+        <i class="fas fa-user-circle"></i>
+        <span>Profile</span>
+      </a>
+    </div>
+  </div>
+</nav>

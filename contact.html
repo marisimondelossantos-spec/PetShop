@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <style>
+    html {
+      visibility: hidden;
+      opacity: 0;
+    }
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Happy Animal Pet Shop</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,153 +18,205 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/general.css">
-  <link rel="stylesheet" href="css/contact.css">
-  <link rel="stylesheet" href="css/auth-modal.css">
-  <link rel="icon" type="image/png" href="assets/images/contact_logo.png">
-  <title>Contact - Happy Animal Pet Shop</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages/contact.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main-jquery.js"></script>
-  <script src="js/auth-modals-updated.js" defer></script>
-  <script src="js/contact.js" defer></script>
-  <script src="js/main.js" defer></script>
-
+  <script src="js/services/storage.js"></script>
+  <script src="js/components/loader.js"></script>
 </head>
 
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="navbar-left">
-      <div class="logo">
-        <i class="fas fa-paw logo-icon"></i>
-        <div class="logo-text">Happy Animal</div>
-      </div>
-      <div class="search-container">
-        <input type="text" placeholder="Search products...">
-        <a href="#"><i class="fas fa-search"></i></a>
-      </div>
-    </div>
+  <div id="navbar"></div>
 
-    <button class="mobile-toggle">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="Shop.html">Shop</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html" class="active">Contact Us</a>
-    </div>
-
-    <div class="auth-buttons">
-      <a href="#" id="openLoginModal" class="btn-login">Log In</a>
-      <a href="#" id="openSignupModal" class="btn-signup">Sign Up</a>
-    </div>
-  </nav>
-
-  <!-- CONTACT FORM (from contact) -->
-  <section class="contact-section">
+  <!-- Hero Section -->
+  <section class="hero-section">
     <div class="container">
-      <div class="form-text-icons">
-        <div class="form">
-          <form class="inputs-button" action="#" method="post">
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label" for="fname">First Name</label>
-                <input type="text" id="fname" name="fname" class="form-control" placeholder="First name" required />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" for="lname">Last Name</label>
-                <input type="text" id="lname" name="lname" class="form-control" placeholder="Last name" required />
-              </div>
+      <h1 class="hero-title">Get In Touch</h1>
+      <p class="hero-subtitle">Have questions? We're here to help! Reach out to our friendly team for any inquiries
+        about our products or services</p>
+    </div>
+  </section>
+
+  <!-- Contact Info Section -->
+  <section class="contact-info-section">
+    <div class="container">
+      <div class="contact-info-grid">
+        <div class="info-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Visit Us</h3>
+          <p>Abella Bldg. Elias Angeles St., Sta.Cruz</p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-phone"></i>
+          <h3>Call Us</h3>
+          <p>0998 989 8301</p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email Us</h3>
+          <p>john.tuazon24@yahoo.com</p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-clock"></i>
+          <h3>Business Hours</h3>
+          <p>Mon - Sun: 7AM - 8PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form & Map Section -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="form-map-grid">
+        <div class="form-container">
+          <h2>Send Us a Message</h2>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required>
             </div>
-            <div class="mb-3">
-              <label class="form-label" for="email">Email Address</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="E-mail address" required />
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
             </div>
-            <div class="mb-3">
-              <label class="form-label" for="message">Message</label>
-              <textarea id="message" name="message" class="form-control" rows="5"
-                placeholder="Tell us how we can help..." required></textarea>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input type="text" id="subject" name="subject" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100">
-              Send Message
-            </button>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
           </form>
         </div>
-        <div class="text-icons">
-          <div class="div-2">
-            <p class="p">Feel free to contact us</p>
-            <p class="text-big">At Happy Animal Pet Shop, we believe pets make life brighter. And remember: a happy pet
-              makes a happy home.</p>
-          </div>
-          <div class="icons-text">
-            <div class="icon-text">
-              <div class="icon-bg"><img class="img" src="./assets/images/bc/contact/contact us/location.png"
-                  alt="location" /></div>
-              <p class="text-default"><span class="span">Abella Bldg. Elias Angeles St., Sta.Cruz</span></p>
-            </div>
-            <div class="icon-text">
-              <div class="icon-bg"><img class="img" src="./assets/images/bc/contact/contact us/email.png" alt="email" />
-              </div>
-              <div class="text-default">john.tuazon24@yahoo.com</div>
-            </div>
-            <div class="icon-text">
-              <div class="icon-bg"><img class="img" src="./assets/images/bc/contact/contact us/phone.png" alt="phone" />
-              </div>
-              <div class="text-default">0998 989 8301</div>
-            </div>
-            <div class="icon-text">
-              <div class="icon-bg"><img class="img" src="./assets/images/bc/contact/contact us/time.png" alt="time" />
-              </div>
-              <p class="text-default">Mon - Sun: 7AM - 8PM</p>
-            </div>
+
+        <div class="map-container">
+          <h2>Find Us Here</h2>
+          <div class="map-placeholder">
+            <!-- Google Maps Embed - Replace with actual coordinates -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15444.19672869!2d120.98!3d14.60!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDM2JzAwLjAiTiAxMjDCsDU4JzQ4LjAiRQ!5e0!3m2!1sen!2sph!4v1234567890"
+              width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <!-- FAQ Section -->
+  <section class="faq-section">
     <div class="container">
-      <div class="icons-text">
-        <div class="logo-text-icons">
-          <div class="logo"><i class="fas fa-paw logo-icon"></i>
-            <div class="logo-text">Happy Pet Shop</div>
-          </div>
-          <p class="home-textp">At Happy Animal Pet Shop, we believe pets make life brighter. Thank you for stopping by,
-            and remember: a happy pet makes a happy home.</p>
-          <div class="social-icons">
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><img
-                src="./assets/images/home/footer/facebook.png" alt="Facebook" /></a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><img
-                src="./assets/images/home/footer/instagram.png" alt="Instagram" /></a>
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><img
-                src="./assets/images/home/footer/x.png" alt="Twitter" /></a>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>What are your store hours?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>We're open Monday through Sunday, 7AM to 8PM. We're here to serve you and your pets every day of the
+              week!</p>
           </div>
         </div>
-        <div class="text">
-          <div class="text-1">Company</div>
-          <div class="text-2"><a href="about.html" class="footer-link">About Us</a></div>
-        </div>
-        <div class="text">
-          <div class="text-1">Useful Links</div>
-          <div class="text-2"><a href="#" class="footer-link">New products</a><a href="#" class="footer-link">Best
-              sellers</a><a href="#" class="footer-link">F.A.Q</a></div>
-        </div>
-        <div class="text">
-          <div class="text-1">Customer Service</div>
-          <div class="text-2"><a href="contact.html" class="footer-link">Contact Us</a></div>
-        </div>
-        <div class="text">
-          <div class="text-1">Store</div>
-          <div class="text"><a href="https://maps.google.com/?q=Abella+Bldg+Elias+Angeles+St+Sta+Cruz" target="_blank"
-              class="footer-link">Abella Bldg. Elias Angeles St., Sta.Cruz</a>
-            <div class="text-3"><a href="tel:09989898301" class="footer-link">0998 989 8301</a><a
-                href="mailto:john.tuazon24@yahoo.com" class="footer-link">john.tuazon24@yahoo.com</a></div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Do you offer delivery services?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! We offer fast and reliable delivery services for all our products. Orders typically arrive within
+              2-3 business days in the local area.</p>
           </div>
-  </footer>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Can I return products if my pet doesn't like them?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely! We have a 30-day return policy for unopened products. If your pet doesn't take to a
+              particular food or toy, just bring it back with the receipt.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Do you provide pet care advice?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! Our staff are trained pet care experts and are always happy to provide advice on nutrition,
+              grooming, training, and general pet wellness.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Do you carry products for exotic pets?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>We carry a wide range of products for various pets including birds, reptiles, fish, and small mammals. If
+              we don't have something in stock, we can usually special order it for you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>We're Here to Help!</h2>
+      <p>Have more questions? Our friendly team is ready to assist you</p>
+      <a href="tel:09989898301" class="cta-btn">Call Us Now</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <script type="module" src="js/modules/init.js"></script>
+
+  <!-- FAQ Accordion Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          // Close all items
+          faqItems.forEach(i => i.classList.remove('active'));
+
+          // Open clicked item if it wasn't active
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+
+      // Contact Form Submission
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          alert('Thank you for your message! We\'ll get back to you soon.');
+          contactForm.reset();
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,587 @@
+/* ===================================== */
+/* MODAL COMPONENTS STYLES */
+/* ===================================== */
+
+/* ===================================== */
+/* 1. MODAL BASE STYLES */
+/* ===================================== */
+
+/* Modal Backdrop */
+.modal-backdrop,
+.auth-modal-isolated .modal.show,
+.payment-modal-isolated .modal.show {
+    background: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden !important;
+}
+
+/* Modal Dialog */
+.modal-dialog {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+/* Modal Content */
+.modal-content {
+    background: var(--white);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* Modal Animations */
+.modal.fade .modal-dialog {
+    transform: scale(0.9) translateY(-20px);
+    transition: var(--transition-base);
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1) translateY(0);
+}
+
+/* ===================================== */
+/* 2. AUTH MODAL */
+/* ===================================== */
+
+/* Auth Modal Header */
+.auth-modal-isolated .modal-header {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-yellow) 100%);
+    border-bottom: none;
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.auth-modal-isolated .modal-title {
+    font-family: var(--font-primary);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Paw Icon Animation */
+.auth-modal-isolated .modal-title .fa-paw {
+    font-size: 24px;
+    color: var(--white);
+    animation: pawBounce 2s ease-in-out infinite;
+}
+
+@keyframes pawBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Close Button */
+.auth-modal-isolated .btn-close,
+.payment-modal-isolated .btn-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    opacity: 1;
+    transition: var(--transition-base);
+    padding: 0;
+    margin: 0;
+}
+
+.auth-modal-isolated .btn-close:hover,
+.payment-modal-isolated .btn-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Modal Body */
+.auth-modal-isolated .modal-body,
+.payment-modal-isolated .modal-body {
+    padding: 2rem;
+    background: var(--white);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/* Form Controls */
+.auth-modal-isolated .form-label,
+.payment-modal-isolated .form-label {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.auth-modal-isolated .form-control,
+.auth-modal-isolated select.form-control,
+.payment-modal-isolated .form-control,
+.payment-modal-isolated select.form-control {
+    font-family: var(--font-primary);
+    font-size: 15px;
+    padding: 12px 16px;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--border-radius-sm);
+    background: var(--white);
+    color: var(--gray-900);
+    transition: var(--transition-base);
+    width: 100%;
+}
+
+.auth-modal-isolated .form-control:focus,
+.auth-modal-isolated select.form-control:focus,
+.payment-modal-isolated .form-control:focus,
+.payment-modal-isolated select.form-control:focus {
+    border-color: var(--primary-orange);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(248, 117, 55, 0.1);
+}
+
+.auth-modal-isolated .form-control::placeholder,
+.payment-modal-isolated .form-control::placeholder {
+    color: var(--gray-500);
+}
+
+/* Form Text Hints */
+.auth-modal-isolated .form-text,
+.payment-modal-isolated .form-text {
+    font-family: var(--font-primary);
+    font-size: 12px;
+    color: var(--gray-600);
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Input Groups (Password Toggle) */
+.auth-modal-isolated .input-group {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.auth-modal-isolated .input-group .form-control {
+    flex: 1;
+    padding-right: 48px;
+}
+
+.auth-modal-isolated .input-group .btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 48px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: var(--gray-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-base);
+}
+
+.auth-modal-isolated .input-group .btn:hover {
+    color: var(--primary-orange);
+}
+
+/* Checkboxes */
+.auth-modal-isolated .form-check,
+.payment-modal-isolated .form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.auth-modal-isolated .form-check-input,
+.payment-modal-isolated .form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    border: 2px solid var(--gray-200);
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.auth-modal-isolated .form-check-input:checked,
+.payment-modal-isolated .form-check-input:checked {
+    background-color: var(--primary-orange);
+    border-color: var(--primary-orange);
+}
+
+.auth-modal-isolated .form-check-label,
+.payment-modal-isolated .form-check-label {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    color: var(--gray-600);
+    cursor: pointer;
+}
+
+/* Primary Buttons */
+.auth-modal-isolated .btn-primary,
+.payment-modal-isolated .btn-primary {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-yellow) 100%);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    color: var(--white);
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: 0 4px 12px rgba(248, 117, 55, 0.3);
+    width: 100%;
+}
+
+.auth-modal-isolated .btn-primary:hover,
+.payment-modal-isolated .btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-orange-dark) 0%, #f39c12 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(248, 117, 55, 0.4);
+}
+
+.auth-modal-isolated .btn-primary:disabled,
+.payment-modal-isolated .btn-primary:disabled {
+    background: var(--gray-400);
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Auth Links */
+.auth-modal-isolated .auth-link {
+    color: var(--primary-orange);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-base);
+}
+
+.auth-modal-isolated .auth-link:hover {
+    color: var(--primary-orange-dark);
+    text-decoration: underline;
+}
+
+/* Address Section */
+.auth-modal-isolated .address-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--gray-100);
+}
+
+.auth-modal-isolated .address-title {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-orange);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ===================================== */
+/* 3. PAYMENT MODAL */
+/* ===================================== */
+
+.payment-modal-isolated .modal-header {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-yellow) 100%);
+    border-bottom: none;
+    padding: 2rem;
+    text-align: center;
+}
+
+.payment-modal-isolated .modal-title {
+    font-family: var(--font-primary);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Payment Options */
+.payment-modal-isolated .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-modal-isolated .payment-option {
+    padding: 16px;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition-base);
+    display: flex;
+    align-items: center;
+}
+
+.payment-modal-isolated .payment-option:hover {
+    border-color: var(--primary-orange);
+    background: var(--primary-orange-light);
+}
+
+.payment-modal-isolated .payment-option input[type="radio"]:checked+.option-content {
+    color: var(--primary-orange);
+}
+
+/* Order Summary */
+.payment-modal-isolated .order-summary-section {
+    padding: 20px;
+    background: var(--gray-50);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 20px;
+}
+
+.payment-modal-isolated .section-title {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ===================================== */
+/* 4. USER MENU (LOGGED-IN STATE) */
+/* ===================================== */
+
+/* Default: Hide User Menu */
+.auth-buttons .user-menu {
+    display: none !important;
+}
+
+/* Logged In: Show User Menu, Hide Login/Signup */
+html.user-logged-in .auth-buttons .btn-login,
+html.user-logged-in .auth-buttons .btn-signup {
+    display: none;
+}
+
+html.user-logged-in .auth-buttons .user-menu {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+}
+
+/* User Greeting */
+.navbar .user-greeting {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-700);
+    white-space: nowrap;
+}
+
+/* Profile Button */
+.navbar .btn-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, var(--primary-orange) 0%, var(--primary-yellow) 100%);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition-base);
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .btn-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(248, 117, 55, 0.4);
+    color: var(--white);
+}
+
+.navbar .btn-profile i {
+    font-size: 16px;
+}
+
+/* ===================================== */
+/* RESPONSIVE STYLES */
+/* ===================================== */
+
+/* Tablet & Mobile */
+@media (max-width: 768px) {
+
+    .auth-modal-isolated .modal-dialog,
+    .payment-modal-isolated .modal-dialog {
+        max-width: calc(100% - 2rem);
+        margin: 1rem auto;
+    }
+
+    .auth-modal-isolated .modal-header,
+    .payment-modal-isolated .modal-header {
+        padding: 1.5rem 1.5rem 1.25rem;
+    }
+
+    .auth-modal-isolated .modal-title,
+    .payment-modal-isolated .modal-title {
+        font-size: 24px;
+    }
+
+    .auth-modal-isolated .modal-body,
+    .payment-modal-isolated .modal-body {
+        padding: 1.5rem;
+    }
+
+    /* User Menu Mobile */
+    .navbar .user-menu {
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 15px;
+        border-top: 1px solid var(--gray-200);
+    }
+
+    .navbar .user-greeting {
+        flex: 1;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+
+    .auth-modal-isolated .modal-dialog,
+    .payment-modal-isolated .modal-dialog {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .auth-modal-isolated .modal-content,
+    .payment-modal-isolated .modal-content {
+        border-radius: 0;
+        min-height: 100vh;
+    }
+
+    .auth-modal-isolated .form-control,
+    .payment-modal-isolated .form-control {
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+
+    .auth-modal-isolated .btn-primary,
+    .payment-modal-isolated .btn-primary {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+}
+
+/* ===================================== */
+/* UTILITIES */
+/* ===================================== */
+
+/* Bootstrap Grid Support */
+.auth-modal-isolated .row,
+.payment-modal-isolated .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.auth-modal-isolated .col-md-3,
+.auth-modal-isolated .col-md-4,
+.auth-modal-isolated .col-md-6,
+.payment-modal-isolated .col-md-3,
+.payment-modal-isolated .col-md-4,
+.payment-modal-isolated .col-md-6 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    flex: 0 0 auto;
+}
+
+.auth-modal-isolated .col-md-6,
+.payment-modal-isolated .col-md-6 {
+    width: 50%;
+}
+
+.auth-modal-isolated .col-md-4,
+.payment-modal-isolated .col-md-4 {
+    width: 33.333333%;
+}
+
+.auth-modal-isolated .col-md-3,
+.payment-modal-isolated .col-md-3 {
+    width: 25%;
+}
+
+@media (max-width: 768px) {
+
+    .auth-modal-isolated .col-md-3,
+    .auth-modal-isolated .col-md-4,
+    .auth-modal-isolated .col-md-6,
+    .payment-modal-isolated .col-md-3,
+    .payment-modal-isolated .col-md-4,
+    .payment-modal-isolated .col-md-6 {
+        width: 100%;
+    }
+}
+
+/* Spacing Utilities */
+.auth-modal-isolated .mb-3,
+.payment-modal-isolated .mb-3 {
+    margin-bottom: 1.25rem;
+}
+
+.auth-modal-isolated .mt-3,
+.payment-modal-isolated .mt-3 {
+    margin-top: 1.25rem;
+}
+
+.auth-modal-isolated .text-center,
+.payment-modal-isolated .text-center {
+    text-align: center;
+}
+
+/* Focus States */
+.auth-modal-isolated *:focus-visible,
+.payment-modal-isolated *:focus-visible {
+    outline: 2px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+/* Form Animations */
+.auth-modal-isolated .auth-form-container,
+.payment-modal-isolated .payment-form-container {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

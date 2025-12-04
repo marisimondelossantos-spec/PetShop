@@ -1,0 +1,552 @@
+/* ============================================
+   PAYMENT MODAL CSS - Following Shop Design Rules
+   ============================================ */
+
+/* Modal Backdrop */
+.payment-modal-isolated .modal.show {
+    background: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* Modal Dialog - Larger for payment details */
+.payment-modal-isolated .modal-dialog {
+    max-width: 700px !important;
+    margin: 2rem auto !important;
+}
+
+/* Modal Content */
+.payment-modal-isolated .modal-content {
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+    overflow: hidden !important;
+}
+
+/* Modal Header */
+.payment-modal-isolated .modal-header {
+    background: linear-gradient(135deg, #F87537 0%, #FBA81F 100%) !important;
+    border-bottom: none !important;
+    padding: 2rem 2rem 1.5rem !important;
+    text-align: center !important;
+    position: relative !important;
+}
+
+.payment-modal-isolated .modal-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+}
+
+.payment-modal-isolated .modal-title i {
+    font-size: 24px !important;
+    color: #ffffff !important;
+}
+
+/* Close Button */
+.payment-modal-isolated .btn-close {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50% !important;
+    opacity: 1 !important;
+    transition: all 0.3s ease !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.payment-modal-isolated .btn-close:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: rotate(90deg) !important;
+}
+
+/* Modal Body */
+.payment-modal-isolated .modal-body {
+    padding: 2rem !important;
+    background: #ffffff !important;
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+}
+
+/* Section Titles */
+.payment-modal-isolated .section-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    margin-bottom: 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding-bottom: 0.75rem !important;
+    border-bottom: 2px solid #f0f0f0 !important;
+}
+
+.payment-modal-isolated .section-title i {
+    color: #F87537 !important;
+    font-size: 18px !important;
+}
+
+/* Order Summary Section */
+.payment-modal-isolated .order-summary-section {
+    margin-bottom: 1.5rem !important;
+    padding: 1.5rem !important;
+    background: #f8f9fa !important;
+    border-radius: 12px !important;
+}
+
+.payment-modal-isolated .order-items-list {
+    margin-bottom: 1rem !important;
+}
+
+.payment-modal-isolated .order-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.75rem 0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.payment-modal-isolated .order-item:last-child {
+    border-bottom: none !important;
+}
+
+.payment-modal-isolated .item-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex: 1 !important;
+}
+
+.payment-modal-isolated .item-name {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+}
+
+.payment-modal-isolated .item-qty {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13px !important;
+    color: #666 !important;
+    background: #e0e0e0 !important;
+    padding: 2px 8px !important;
+    border-radius: 12px !important;
+}
+
+.payment-modal-isolated .item-price {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #F87537 !important;
+}
+
+.payment-modal-isolated .order-total {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 1rem !important;
+    margin-top: 1rem !important;
+    border-top: 2px solid #ddd !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+}
+
+.payment-modal-isolated .total-amount {
+    color: #F87537 !important;
+    font-size: 22px !important;
+}
+
+/* Payment Method Section */
+.payment-modal-isolated .payment-method-section {
+    margin-bottom: 1.5rem !important;
+}
+
+.payment-modal-isolated .payment-options {
+    display: grid !important;
+    gap: 12px !important;
+}
+
+.payment-modal-isolated .payment-option {
+    position: relative !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+}
+
+.payment-modal-isolated .payment-option input[type="radio"] {
+    position: absolute !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.payment-modal-isolated .option-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 1rem 1.25rem !important;
+    background: #f8f9fa !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.payment-modal-isolated .payment-option input:checked+.option-content {
+    background: rgba(248, 117, 55, 0.1) !important;
+    border-color: #F87537 !important;
+}
+
+.payment-modal-isolated .payment-option:hover .option-content {
+    border-color: #F87537 !important;
+}
+
+.payment-modal-isolated .option-content i {
+    font-size: 24px !important;
+    color: #F87537 !important;
+    width: 32px !important;
+    text-align: center !important;
+}
+
+.payment-modal-isolated .option-text {
+    flex: 1 !important;
+}
+
+.payment-modal-isolated .option-text strong {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    display: block !important;
+    margin-bottom: 4px !important;
+}
+
+.payment-modal-isolated .option-text small {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 12px !important;
+    color: #666 !important;
+    display: block !important;
+}
+
+/* Card Payment Details */
+.payment-modal-isolated .card-payment-details,
+.payment-modal-isolated .gcash-payment-details {
+    margin-bottom: 1.5rem !important;
+    padding: 1.5rem !important;
+    background: #f8f9fa !important;
+    border-radius: 12px !important;
+    animation: fadeIn 0.3s ease !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Controls */
+.payment-modal-isolated .form-label {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+}
+
+.payment-modal-isolated .form-control {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
+    padding: 12px 16px !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    color: #000 !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+}
+
+.payment-modal-isolated .form-control:focus {
+    border-color: #F87537 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(248, 117, 55, 0.1) !important;
+}
+
+.payment-modal-isolated .form-control::placeholder {
+    color: #999 !important;
+}
+
+.payment-modal-isolated .form-text {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 12px !important;
+    color: #666 !important;
+    margin-top: 0.25rem !important;
+    display: block !important;
+}
+
+/* Bootstrap Grid Support */
+.payment-modal-isolated .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-left: -0.5rem !important;
+    margin-right: -0.5rem !important;
+}
+
+.payment-modal-isolated .col-md-6 {
+    flex: 0 0 auto !important;
+    width: 50% !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+.payment-modal-isolated .mb-3 {
+    margin-bottom: 1.25rem !important;
+}
+
+/* Delivery Address Section */
+.payment-modal-isolated .delivery-address-section {
+    margin-bottom: 1.5rem !important;
+}
+
+.payment-modal-isolated .address-display {
+    padding: 1rem 1.25rem !important;
+    background: #f8f9fa !important;
+    border-radius: 12px !important;
+    border-left: 4px solid #F87537 !important;
+}
+
+.payment-modal-isolated .address-display p {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    color: #333 !important;
+    margin: 0.25rem 0 !important;
+    line-height: 1.6 !important;
+}
+
+.payment-modal-isolated .address-display p strong {
+    font-weight: 600 !important;
+    color: #000 !important;
+}
+
+.payment-modal-isolated .address-display .text-muted {
+    color: #999 !important;
+}
+
+/* Security Notice */
+.payment-modal-isolated .security-notice {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 0.75rem 1rem !important;
+    background: rgba(46, 204, 113, 0.1) !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #2ecc71 !important;
+}
+
+.payment-modal-isolated .security-notice i {
+    color: #2ecc71 !important;
+    font-size: 18px !important;
+}
+
+.payment-modal-isolated .security-notice span {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13px !important;
+    color: #27ae60 !important;
+    font-weight: 500 !important;
+}
+
+/* Modal Footer */
+.payment-modal-isolated .modal-footer {
+    border-top: 2px solid #f0f0f0 !important;
+    padding: 1.5rem 2rem !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+}
+
+.payment-modal-isolated .btn-secondary {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    padding: 12px 24px !important;
+    background: #e0e0e0 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: #333 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.payment-modal-isolated .btn-secondary:hover {
+    background: #ccc !important;
+}
+
+.payment-modal-isolated .btn-primary {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    padding: 12px 28px !important;
+    background: linear-gradient(135deg, #F87537 0%, #FBA81F 100%) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(248, 117, 55, 0.3) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.payment-modal-isolated .btn-primary:hover {
+    background: linear-gradient(135deg, #e66428 0%, #f39c12 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(248, 117, 55, 0.4) !important;
+}
+
+.payment-modal-isolated .btn-primary:active {
+    transform: translateY(0) !important;
+}
+
+/* Empty Cart Message */
+.payment-modal-isolated .empty-cart-message {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    color: #999 !important;
+    text-align: center !important;
+    padding: 2rem !important;
+    margin: 0 !important;
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+    .payment-modal-isolated .modal-dialog {
+        max-width: calc(100% - 2rem) !important;
+        margin: 1rem auto !important;
+    }
+
+    .payment-modal-isolated .modal-header {
+        padding: 1.5rem 1.5rem 1.25rem !important;
+    }
+
+    .payment-modal-isolated .modal-title {
+        font-size: 24px !important;
+    }
+
+    .payment-modal-isolated .modal-body {
+        padding: 1.5rem !important;
+    }
+
+    .payment-modal-isolated .modal-footer {
+        padding: 1.25rem 1.5rem !important;
+        flex-direction: column !important;
+    }
+
+    .payment-modal-isolated .modal-footer .btn-secondary,
+    .payment-modal-isolated .modal-footer .btn-primary {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .payment-modal-isolated .col-md-6 {
+        width: 100% !important;
+    }
+
+    .payment-modal-isolated .order-summary-section,
+    .payment-modal-isolated .card-payment-details,
+    .payment-modal-isolated .gcash-payment-details {
+        padding: 1.25rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-modal-isolated .modal-dialog {
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .payment-modal-isolated .modal-content {
+        border-radius: 0 !important;
+        min-height: 100vh !important;
+    }
+
+    .payment-modal-isolated .modal-header {
+        padding: 1.25rem 1rem 1rem !important;
+    }
+
+    .payment-modal-isolated .modal-title {
+        font-size: 22px !important;
+    }
+
+    .payment-modal-isolated .modal-body {
+        padding: 1.25rem !important;
+    }
+
+    .payment-modal-isolated .item-name {
+        font-size: 13px !important;
+    }
+
+    .payment-modal-isolated .order-total {
+        font-size: 16px !important;
+    }
+
+    .payment-modal-isolated .total-amount {
+        font-size: 18px !important;
+    }
+}
+
+/* Smooth Modal Animations */
+.payment-modal-isolated .modal.fade .modal-dialog {
+    transform: scale(0.9) translateY(-20px) !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+}
+
+.payment-modal-isolated .modal.show .modal-dialog {
+    transform: scale(1) translateY(0) !important;
+}
+
+/* Focus States */
+.payment-modal-isolated *:focus-visible {
+    outline: 2px solid #F87537 !important;
+    outline-offset: 2px !important;
+}
+
+/* Typography Consistency */
+.payment-modal-isolated h1,
+.payment-modal-isolated h2,
+.payment-modal-isolated h3,
+.payment-modal-isolated h4,
+.payment-modal-isolated h5,
+.payment-modal-isolated h6,
+.payment-modal-isolated p,
+.payment-modal-isolated a,
+.payment-modal-isolated button,
+.payment-modal-isolated input,
+.payment-modal-isolated select,
+.payment-modal-isolated label,
+.payment-modal-isolated span {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* FOUC Prevention - Show page after CSS loads */
+html {
+    visibility: visible;
+    opacity: 1;
+}

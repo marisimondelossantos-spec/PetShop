@@ -1,0 +1,219 @@
+/* ====================================== */
+/* TYPOGRAPHY SYSTEM */
+/* ====================================== */
+
+/* Base html and body typography */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+  font-weight: 400;
+}
+
+/* HEADING SYSTEM */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--gray-900);
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 3rem; /* 48px */
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 2rem; /* 32px */
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+}
+
+/* PARAGRAPH SYSTEM */
+p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+.lead {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.8;
+  color: var(--gray-600);
+}
+
+.small-text {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5;
+  color: var(--gray-600);
+}
+
+.tiny-text {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.4;
+  color: var(--gray-500);
+}
+
+/* FONT WEIGHT CLASSES */
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-black { font-weight: 800; }
+.font-heavy { font-weight: 900; }
+
+/* FONT FAMILY CLASSES */
+.font-primary { font-family: var(--font-primary); }
+.font-secondary { font-family: var(--font-secondary); }
+.font-mono { font-family: var(--font-mono); }
+
+/* TEXT COLOR CLASSES */
+.text-white { color: var(--white); }
+.text-black { color: var(--gray-900); }
+.text-gray { color: var(--gray-600); }
+.text-primary { color: var(--primary-orange); }
+.text-success { color: var(--success-green); }
+.text-warning { color: var(--warning-orange); }
+.text-danger { color: var(--danger-red); }
+.text-sale { color: var(--sale-red); }
+
+/* TEXT ALIGNMENT */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* TEXT TRANSFORMATION */
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+/* LINE HEIGHT CLASSES */
+.leading-tight { line-height: 1.2; }
+.leading-normal { line-height: 1.6; }
+.leading-relaxed { line-height: 1.8; }
+.leading-loose { line-height: 2; }
+
+/* SPECIAL TYPOGRAPHY COMPONENTS */
+.subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  color: var(--gray-600);
+  line-height: 1.4;
+}
+
+.section-title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem; /* 40px */
+  font-weight: 600;
+  color: var(--gray-900);
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.card-title {
+  font-family: var(--font-primary);
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  color: var(--gray-900);
+  line-height: 1.4;
+}
+
+.card-subtitle {
+  font-family: var(--font-secondary);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.price {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  color: var(--primary-orange);
+}
+
+.price-large {
+  font-size: 1.5rem; /* 24px */
+}
+
+.price-medium {
+  font-size: 1.25rem; /* 20px */
+}
+
+.price-small {
+  font-size: 1.125rem; /* 18px */
+}
+
+/* LINK TYPOGRAPHY */
+.link {
+  color: var(--primary-orange);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  font-weight: 500;
+}
+
+.link:hover {
+  color: var(--primary-orange-dark);
+  text-decoration: underline;
+}
+
+.link-unstyled {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.link-unstyled:hover {
+  color: var(--primary-orange);
+}
+
+/* RESPONSIVE TYPOGRAPHY */
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; /* 40px */ }
+  h2 { font-size: 2rem; /* 32px */ }
+  h3 { font-size: 1.5rem; /* 24px */ }
+  h4 { font-size: 1.25rem; /* 20px */ }
+  
+  .section-title {
+    font-size: 2rem; /* 32px */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; /* 32px */ }
+  h2 { font-size: 1.5rem; /* 24px */ }
+  h3 { font-size: 1.25rem; /* 20px */ }
+  
+  .section-title {
+    font-size: 1.5rem; /* 24px */
+  }
+}

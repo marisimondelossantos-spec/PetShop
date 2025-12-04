@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+  <style>
+    html {
+      visibility: hidden;
+      opacity: 0;
+    }
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Animal Pet Shop</title>
@@ -12,19 +18,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/general.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/auth-modal.css">
-  <style>
-    :root {
-      --font-primary: 'Poppins', sans-serif;
-      --font-secondary: 'Inter', sans-serif;
-    }
-  </style>
+  <link rel="stylesheet" href="css/main.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js" defer></script>
-  <script src="js/auth-modals-updated.js" defer></script>
+  <script src="js/services/storage.js"></script>
+  <script src="js/components/loader.js"></script>
 </head>
 
 <body>
@@ -37,402 +35,285 @@
         <img class="bird" src="assets/images/home/bayong.png" alt="ibon" />
       </div>
 
-      <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="navbar-left">
-          <div class="logo">
-            <i class="fas fa-paw logo-icon"></i>
-            <div class="logo-text">Happy Animal</div>
-          </div>
-          <div class="search-container">
-            <input type="text" placeholder="Search products...">
-            <a href="#"><i class="fas fa-search"></i></a>
-          </div>
-        </div>
-
-        <button class="mobile-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <div class="nav-links">
-          <a href="index.html" class="active">Home</a>
-          <a href="Shop.html">Shop</a>
-          <a href="about.html">About Us</a>
-          <a href="contact.html">Contact Us</a>
-        </div>
-
-        <div class="auth-buttons">
-          <a href="#" id="openLoginModal" class="btn-login">Log In</a>
-          <a href="#" id="openSignupModal" class="btn-signup">Sign Up</a>
-        </div>
-      </nav>
+      <div id="navbar"></div>
 
       <div class="hero-container">
         <div class="hero-content">
           <div class="hero-text">
             <div class="hero-text-content">
-              <h3>Happy Animal PetShop</h3>
-              <h1>A pet store with<br>everything you need</h1>
-              <p>
-                From daily essentials to special treats, Happy Animal Pet Shop has it all.
-                Whether your pets bark, purr, climb, or swim, you'll find everything they need
-                to live a healthier and happier life.
-              </p>
+              <h3>WELCOME TO HAPPY ANIMAL PET SHOP</h3>
+              <h1>Everything Your Pet <br />Needs, All In One Place</h1>
+              <p>Discover premium pet supplies, expert advice, and loving care for your furry companions. From
+                nutritious
+                food to playful toys, we've got everything to keep your pets happy and healthy.</p>
             </div>
-            <a href="Shop.html" class="cta-button">Browse Now</a>
+            <a href="Shop.html" class="cta-button">Shop Now</a>
           </div>
-
           <div class="hero-image">
-            <img class="shape" src="assets/images/home/HeroShape.png" alt="Background shape" />
-            <img class="img" src="assets/images/home/HeroImageMain.png" alt="Dog image" />
+            <img class="img" src="assets/images/home/HeroImageMain.png" alt="Happy pets" />
           </div>
         </div>
       </div>
+
     </section>
 
   </header>
 
+
   <main>
 
-    <section class="categories">
+    <!-- FEATURED CATEGORIES SECTION -->
+    <section class="featured-categories">
       <div class="container">
-        <div class="text-icons">
-          <div class="home-text">
-            <h1>Browse by category</h1>
-          </div>
-        </div>
-        <div class="cards">
-
-          <div class="card">
-            <div class="img"><img src="assets/images/home/accessories.png" alt="Pet accessories products" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Accessories</div>
-                <div class="product-amount">84 products</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
-                </a>
-              </div>
+        <h2 class="section-title">Shop By Category</h2>
+        <div class="category-grid">
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-bone"></i>
             </div>
+            <h3>Dog Supplies</h3>
+            <p>Everything your dog needs</p>
+            <span class="product-count">28 Products</span>
+            <a href="Shop.html" class="category-link">Shop Now</a>
           </div>
-
-          <div class="card">
-            <div class="img-2"><img src="assets/images/home/food.png" alt="Pet food products" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Food</div>
-                <div class="product-amount">64 products</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
-                </a>
-              </div>
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-cat"></i>
             </div>
+            <h3>Cat Supplies</h3>
+            <p>Premium cat care essentials</p>
+            <span class="product-count">35 Products</span>
+            <a href="Shop.html" class="category-link">Shop Now</a>
           </div>
-
-          <div class="card">
-            <div class="img-3"><img src="assets/images/home/pets.png" alt="Pets for adoption" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Pets</div>
-                <div class="product-amount">22 products</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
-                </a>
-              </div>
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-football-ball"></i>
             </div>
+            <h3>Toys & Play</h3>
+            <p>Keep them entertained</p>
+            <span class="product-count">18 Products</span>
+            <a href="Shop.html" class="category-link">Shop Now</a>
           </div>
-
-          <div class="card">
-            <div class="img-4"><img src="assets/images/home/health.png" alt="Pet health and wellness products" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Health &amp; Wellness</div>
-                <div class="product-amount">16 products</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" />
-                </a>
-              </div>
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="fas fa-paw"></i>
             </div>
+            <h3>Accessories</h3>
+            <p>Collars, leashes & more</p>
+            <span class="product-count">64 Products</span>
+            <a href="Shop.html" class="category-link">Shop Now</a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <section class="info-block">
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-choose-us-home">
       <div class="container">
-        <div class="text-button">
-          <div class="info-text">
-            <h3>Pet Shop</h3>
-            <h1>The smarter way to shop <br>for your pet</h1>
-            <p>At Happy Animal Pet Shop, we make shopping smarter and easier for every pet lover. From nutritious food
-              and
-              comfy essentials to toys that bring endless joy, everything is chosen with care to keep your pets happy,
-              healthy, and full of life.</p>
-            <a href="about.html" class="cta-button">Learn More</a>
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-award"></i>
+            <h3>Premium Quality</h3>
+            <p>Only the best products from trusted brands for your beloved pets</p>
           </div>
-        </div>
-        <div class="shape-img">
-          <img class="shape" src="assets/images/home/AboutShape.png" />
-          <img class="img" src="assets/images/home/HeroImageMain.png" />
+          <div class="feature-card">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>Fast Delivery</h3>
+            <p>Quick and reliable shipping to get products to your door fast</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-headset"></i>
+            <h3>Expert Support</h3>
+            <p>Our team is here to help with any questions about pet care</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-heart"></i>
+            <h3>Pet Lovers</h3>
+            <p>Run by passionate pet owners who truly care about animals</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-dollar-sign"></i>
+            <h3>Best Prices</h3>
+            <p>Competitive pricing without compromising on quality</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Safe & Secure</h3>
+            <p>All products are tested and approved for pet safety</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="best-selling">
+    <!-- BEST SELLERS SECTION -->
+    <section class="best-sellers-home">
       <div class="container">
-        <div class="title-middle">Best selling products</div>
-        <div class="cards">
-
-          <div class="card">
-            <div class="img"><img src="assets/images/products/smart-puzzle-toy.jpg"
-                alt="Smart Puzzle Level 1 Dog Toy" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Smart Puzzle Level 1 Dog Toy</div>
-                <div class="product-amount">₱799</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+        <h2 class="section-title">Best Selling Products</h2>
+        <p class="section-subtitle">Discover our most loved products by pet parents everywhere</p>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://via.placeholder.com/300x300/FF8C42/ffffff?text=Premium+Dog+Food" alt="Premium Dog Food">
+            </div>
+            <div class="product-info">
+              <h3>Premium Dog Food</h3>
+              <p class="product-price">₱1,299.00</p>
+              <div class="product-actions">
+                <a href="Shop.html" class="btn-view">View Details</a>
               </div>
             </div>
           </div>
-
-          <div class="card">
-            <div class="img"><img src="assets/images/products/plush-elephant-toy.jpg" alt="Plush Elephant Dog Toy" />
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://via.placeholder.com/300x300/FFB800/ffffff?text=Cat+Treats" alt="Cat Treats">
             </div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Plush Elephant Dog Toy</div>
-                <div class="product-amount">₱269</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+            <div class="product-info">
+              <h3>Cat Treats</h3>
+              <p class="product-price">₱399.00</p>
+              <div class="product-actions">
+                <a href="Shop.html" class="btn-view">View Details</a>
               </div>
             </div>
           </div>
-
-          <div class="card">
-            <div class="img"><img src="assets/images/products/food-ball-toy.jpg" alt="Lucky Dog Food Ball Toy" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Lucky Dog Food Ball Toy</div>
-                <div class="product-amount">₱149</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://via.placeholder.com/300x300/FF8C42/ffffff?text=Interactive+Toy" alt="Interactive Toy">
+            </div>
+            <div class="product-info">
+              <h3>Interactive Toy</h3>
+              <p class="product-price">₱599.00</p>
+              <div class="product-actions">
+                <a href="Shop.html" class="btn-view">View Details</a>
               </div>
             </div>
           </div>
-
-          <div class="card">
-            <div class="img"><img src="assets/images/products/interactive-puzzle.jpg"
-                alt="Interactive Puzzle Toy Level 2" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Interactive Puzzle Toy Level 2</div>
-                <div class="product-amount">₱1,299</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://via.placeholder.com/300x300/FFB800/ffffff?text=Pet+Collar" alt="Pet Collar">
+            </div>
+            <div class="product-info">
+              <h3>Pet Collar</h3>
+              <p class="product-price">₱299.00</p>
+              <div class="product-actions">
+                <a href="Shop.html" class="btn-view">View Details</a>
               </div>
             </div>
           </div>
-
-          <div class="card">
-            <div class="img"><img src="assets/images/products/travel-carrier.jpg" alt="Dog Carrier / Travel Cage" />
-            </div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Dog Carrier / Travel Cage</div>
-                <div class="product-amount">₱2,330</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="img"><img src="assets/images/products/food-dispenser.jpg"
-                alt="Dog Food Dispenser / Interactive Feeder" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Dog Food Dispenser / Interactive Feeder</div>
-                <div class="product-amount">₱1,200</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="img"><img src="assets/images/products/cat-tree.jpg" alt="Cat Tree / Scratching Post" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Cat Tree / Scratching Post</div>
-                <div class="product-amount">₱440</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="img"><img src="assets/images/products/grooming-kit.jpg" alt="Pet Grooming Kit" /></div>
-            <div class="text-icon">
-              <div class="text">
-                <div class="product-title">Pet Grooming Kit</div>
-                <div class="product-amount">₱400</div>
-              </div>
-              <div class="icon-bg">
-                <a href="#" class="arrow-link">
-                  <img src="assets/images/home/CategoryIcon.png" alt="Go to category" /></a>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <section class="shop-by-pet">
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-home">
       <div class="container">
-        <div class="text-icon">
-          <div class="text-middle">Shop by pet</div>
+        <h2 class="section-title">Happy Customers</h2>
+        <p class="section-subtitle">See what pet parents are saying about us</p>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Best pet shop in town! My dog absolutely loves the premium food we get here.
+              The staff is always so helpful and knowledgeable."</p>
+            <div class="testimonial-author">
+              <img src="https://i.pravatar.cc/80?img=1" alt="Maria Santos">
+              <div>
+                <h4>Maria Santos</h4>
+                <p>Dog Owner</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Amazing selection of cat toys and treats! My cats are so much happier since we
+              started shopping here. Highly recommend!"</p>
+            <div class="testimonial-author">
+              <img src="https://i.pravatar.cc/80?img=5" alt="Juan dela Cruz">
+              <div>
+                <h4>Juan dela Cruz</h4>
+                <p>Cat Parent</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Great prices and fast delivery! The quality of products is outstanding. This is
+              now my go-to shop for all pet supplies."</p>
+            <div class="testimonial-author">
+              <img src="https://i.pravatar.cc/80?img=9" alt="Sarah Lopez">
+              <div>
+                <h4>Sarah Lopez</h4>
+                <p>Pet Lover</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="imgs-bg-text">
+      </div>
+    </section>
 
-          <div class="img-bg-text">
-            <div class="img-shape">
-              <img class="shape" src="assets/images/home/bg1.png" alt="Cat background shape" />
-              <a href="Shop.html?category=cat"><img class="img" src="assets/images/home/HeroImageMain.png"
-                  alt="Cat products" /></a>
-            </div>
-            <div class="pet-name">Cat</div>
+    <!-- STATISTICS SECTION -->
+    <section class="stats-section-home">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <i class="fas fa-paw"></i>
+            <div class="stat-number">2,000+</div>
+            <div class="stat-label">Happy Pets</div>
           </div>
-
-          <div class="img-bg-text">
-            <div class="img-shape">
-              <img class="shape" src="assets/images/home/bg2.png" alt="Hamster background" />
-              <a href="Shop.html?category=hamster"><img class="img" src="assets/images/home/HeroImageMain.png"
-                  alt="Hamster products" /></a>
-            </div>
-            <div class="pet-name">Hamster</div>
+          <div class="stat-item">
+            <i class="fas fa-users"></i>
+            <div class="stat-number">1,500+</div>
+            <div class="stat-label">Loyal Customers</div>
           </div>
-
-          <div class="img-bg-text">
-            <div class="img-shape">
-              <img class="shape" src="assets/images/home/bg3.png" alt="Dog background" />
-              <a href="Shop.html?category=dog"><img class="img" src="assets/images/home/HeroImageMain.png"
-                  alt="Dog products" /></a>
-            </div>
-            <div class="pet-name">Dog</div>
+          <div class="stat-item">
+            <i class="fas fa-box"></i>
+            <div class="stat-number">1,800+</div>
+            <div class="stat-label">Quality Products</div>
           </div>
-
-          <div class="img-bg-text">
-            <div class="img-shape">
-              <img class="shape" src="assets/images/home/bg4.png" alt="Bird background" />
-              <a href="Shop.html?category=bird"><img class="img" src="assets/images/home/HeroImageMain.png"
-                  alt="Bird products" /></a>
-            </div>
-            <div class="pet-name">Bird</div>
-          </div>
-
-          <div class="img-bg-text">
-            <div class="img-shape">
-              <img class="shape" src="assets/images/home/bg5.png" alt="Rabbit background" />
-              <a href="Shop.html?category=rabbit"><img class="img" src="assets/images/home/HeroImageMain.png"
-                  alt="Rabbit products" /></a>
-            </div>
-            <div class="pet-name">Rabbit</div>
+          <div class="stat-item">
+            <i class="fas fa-calendar"></i>
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Years Experience</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="cta-section-home">
+      <div class="container">
+        <h2>Ready to Spoil Your Pet?</h2>
+        <p>Browse our complete collection of premium pet supplies and give your furry friends the best</p>
+        <a href="Shop.html" class="cta-btn-home">Shop Now</a>
       </div>
     </section>
 
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="icons-text">
-        <div class="logo-text-icons">
 
-          <div class="logo">
-            <i class="fas fa-paw logo-icon"></i>
-            <div class="logo-text">Happy Pet Shop</div>
-          </div>
-          <p class="home-textp">
-            At Happy Animal Pet Shop, we believe pets make life brighter.
-            Thank you for stopping by, and remember: a happy pet makes a happy home.
-          </p>
+  <footer id="footer"></footer>
 
-          <div class="social-icons">
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-              <img src="assets/images/home/footer/facebook.png" alt="Facebook" />
-            </a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-              <img src="assets/images/home/footer/instagram.png" alt="Instagram" />
-            </a>
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-              <img src="assets/images/home/footer/x.png" alt="Twitter" />
-            </a>
-          </div>
-        </div>
 
-        <div class="text">
-          <div class="text-1">Company</div>
-          <div class="text-2">
-            <a href="about.html" class="footer-link">About Us</a>
-          </div>
-        </div>
+  <div id="auth-modals-container"></div>
 
-        <div class="text">
-          <div class="text-1">Useful Links</div>
-          <div class="text-2">
-            <a href="new-products.html" class="footer-link">New products</a>
-            <a href="best-sellers.html" class="footer-link">Best sellers</a>
-            <a href="faq.html" class="footer-link">F.A.Q</a>
-          </div>
-        </div>
-
-        <div class="text">
-          <div class="text-1">Customer Service</div>
-          <div class="text-2">
-            <a href="contact.html" class="footer-link">Contact Us</a>
-          </div>
-        </div>
-
-        <div class="text">
-          <div class="text-1">Store</div>
-          <div class="text">
-            <a href="https://maps.google.com/?q=Abella+Bldg+Elias+Angeles+St+Sta+Cruz" target="_blank"
-              class="footer-link">Abella Bldg. Elias Angeles St., Sta.Cruz</a>
-            <div class="text-3">
-              <a href="tel:09989898301" class="footer-link">0998 989 8301</a>
-              <a href="mailto:john.tuazon24@yahoo.com" class="footer-link">john.tuazon24@yahoo.com</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <script type="module" src="js/modules/init.js"></script>
 </body>
 
 </html>

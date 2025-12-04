@@ -115,7 +115,7 @@ const escapeHtml = (text) => {
  */
 const getWishlist = () => {
     try {
-        return JSON.parse(localStorage.getItem('wishlist') || '[]');
+        return window.StorageService.getWishlist();
     } catch (error) {
         console.error('Error reading wishlist:', error);
         return [];
@@ -128,7 +128,7 @@ const getWishlist = () => {
  */
 const saveWishlist = (wishlist) => {
     try {
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        window.StorageService.setWishlist(wishlist);
     } catch (error) {
         console.error('Error saving wishlist:', error);
     }
@@ -400,7 +400,7 @@ const handleAddToCart = async (event) => {
         await new Promise(resolve => setTimeout(resolve, 800));
 
         // Add to cart (localStorage for demo)
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const cart = window.StorageService.getCart();
         const existingItem = cart.find(item => item.productId === productId);
 
         if (existingItem) {
@@ -409,7 +409,7 @@ const handleAddToCart = async (event) => {
             cart.push({ productId, productName, price, image, quantity: 1 });
         }
 
-        localStorage.setItem('cart', JSON.stringify(cart));
+        window.StorageService.setCart(cart);
 
         // Show success state
         button.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i><span class="btn-text">Added!</span>';

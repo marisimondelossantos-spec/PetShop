@@ -161,7 +161,7 @@ document.querySelectorAll('.product-brand').forEach(badge => {
     });
 
     // ============================================
-    // ADD TO CART FROM MODAL
+    // ADD TO CART FROM MODAL - REFACTORED VERSION
     // ============================================
     modal.querySelector('.shop-modal-add-to-cart')?.addEventListener('click', function () {
         const btn = this;
@@ -171,7 +171,8 @@ document.querySelectorAll('.product-brand').forEach(badge => {
         btn.disabled = true;
 
         setTimeout(() => {
-            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            // CHANGED: Use StorageService instead of direct localStorage
+            let cart = window.StorageService.getCart();
             const existing = cart.find(item => item.id === currentProductData.id);
 
             if (existing) {
@@ -186,7 +187,8 @@ document.querySelectorAll('.product-brand').forEach(badge => {
                 });
             }
 
-            localStorage.setItem('cart', JSON.stringify(cart));
+            // CHANGED: Use StorageService to save cart
+            window.StorageService.setCart(cart);
             btn.textContent = 'Added!';
             btn.classList.add('added');
 

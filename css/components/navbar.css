@@ -1,0 +1,377 @@
+/* ===================================== */
+/* NAVBAR COMPONENT STYLES */
+/* ===================================== */
+
+.navbar {
+    position: fixed;
+    top: var(--navbar-scrolled);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-white);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-md);
+    z-index: var(--z-fixed);
+    width: calc(100% - 80px);
+    max-width: var(--container-max-width);
+    height: var(--navbar-height);
+    padding: 24px 40px;
+    transition: var(--transition-base);
+    gap: 30px;
+}
+
+/* Scrolled State */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--primary-orange-border);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===================================== */
+/* NAVBAR LAYOUT SECTIONS */
+/* ===================================== */
+
+.navbar .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex: 0 0 auto;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+    flex: 0 0 auto;
+}
+
+.navbar .auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* ===================================== */
+/* LOGO */
+/* ===================================== */
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.navbar .logo-icon {
+    color: var(--gray-900);
+    font-size: 24px;
+    transition: var(--transition-base);
+    display: block;
+}
+
+.navbar .logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-900);
+    transition: var(--transition-base);
+    white-space: nowrap;
+    font-family: var(--font-primary);
+}
+
+.navbar.scrolled .logo-icon {
+    color: var(--primary-orange);
+}
+
+/* ===================================== */
+/* NAV LINKS */
+/* ===================================== */
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: var(--gray-600);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 0;
+    position: relative;
+    transition: var(--transition-base);
+}
+
+.navbar .nav-links a:hover {
+    color: var(--primary-orange);
+    transform: scale(1.1);
+}
+
+.navbar .nav-links a.active {
+    color: var(--primary-orange);
+    font-weight: 600;
+}
+
+.navbar .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-orange);
+    border-radius: 2px;
+}
+
+/* ===================================== */
+/* AUTH BUTTONS (Login/Signup) */
+/* ===================================== */
+
+.navbar .auth-buttons .btn-login,
+.navbar .auth-buttons .btn-signup {
+    padding: 10px 20px !important;
+    font-family: var(--font-primary) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: var(--transition-base) !important;
+    cursor: pointer !important;
+    border-radius: 25px !important;
+}
+
+.navbar .auth-buttons .btn-login {
+    background: transparent !important;
+    border: 2px solid var(--primary-orange) !important;
+    color: var(--primary-orange) !important;
+}
+
+.navbar .auth-buttons .btn-login:hover {
+    background: var(--primary-orange) !important;
+    color: var(--white) !important;
+}
+
+.navbar .auth-buttons .btn-signup {
+    background: linear-gradient(90deg, var(--primary-orange) 0%, var(--primary-yellow) 100%) !important;
+    border: none !important;
+    color: var(--white) !important;
+}
+
+.navbar .auth-buttons .btn-signup:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(248, 117, 55, 0.4) !important;
+}
+
+/* ===================================== */
+/* SEARCH CONTAINER */
+/* ===================================== */
+
+.navbar .search-container {
+    display: flex;
+    align-items: center;
+    background: var(--gray-50);
+    border-radius: 25px;
+    padding: 8px 18px;
+    width: 280px;
+    min-width: 280px;
+    border: 1px solid var(--gray-200);
+    transition: var(--transition-base);
+    flex-shrink: 0;
+}
+
+.navbar .search-container:focus-within {
+    width: 400px;
+    min-width: 400px;
+    box-shadow: 0 0 0 2px rgba(248, 117, 55, 0.12);
+    border: 1.5px solid var(--primary-orange);
+    background: var(--white);
+}
+
+.navbar.scrolled .search-container {
+    background: rgba(248, 249, 250, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.navbar .search-container a {
+    display: flex;
+    align-items: center;
+    color: var(--gray-600);
+    text-decoration: none;
+    margin-left: 8px;
+    transition: var(--transition-base);
+}
+
+.navbar .search-container a:hover {
+    color: var(--primary-orange);
+}
+
+.navbar .search-container i {
+    color: inherit;
+    font-size: 16px;
+}
+
+.navbar .search-container input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 15px;
+    color: var(--gray-700);
+}
+
+.navbar .search-container input::placeholder {
+    color: var(--gray-500);
+}
+
+/* ===================================== */
+/* MOBILE TOGGLE */
+/* ===================================== */
+
+.navbar .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--gray-700);
+    cursor: pointer;
+    padding: 8px;
+    transition: var(--transition-base);
+    border-radius: var(--border-radius-sm);
+}
+
+.navbar .mobile-toggle:hover {
+    color: var(--primary-orange);
+    background-color: var(--gray-50);
+}
+
+/* ===================================== */
+/* RESPONSIVE STYLES */
+/* ===================================== */
+
+/* Desktop Large (up to 1440px) */
+@media (max-width: 1440px) {
+    .navbar {
+        width: calc(100% - 60px);
+    }
+}
+
+/* Tablet (up to 1024px) */
+@media (max-width: 1024px) {
+    .navbar {
+        width: calc(100% - 40px);
+        padding: 20px 30px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 15px;
+    }
+
+    .search-container {
+        width: 220px;
+        min-width: 220px;
+    }
+}
+
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        width: calc(100% - 30px);
+        padding: 16px 20px;
+        height: auto;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .navbar .navbar-left {
+        flex: 1;
+        min-width: 0;
+        gap: 12px;
+    }
+
+    .navbar .mobile-toggle {
+        display: block;
+        order: 3;
+        margin-left: auto;
+    }
+
+    .navbar .nav-links {
+        display: none;
+        order: 4;
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+        padding-top: 15px;
+        border-top: 1px solid var(--gray-200);
+        margin-left: 0;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .auth-buttons {
+        display: none;
+        order: 5;
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 15px;
+        border-top: 1px solid var(--gray-200);
+    }
+
+    .navbar .nav-links.active+.auth-buttons,
+    .navbar .auth-buttons.active {
+        display: flex;
+    }
+
+    .navbar .auth-buttons .btn-login,
+    .navbar .auth-buttons .btn-signup {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar .search-container {
+        width: 200px;
+        min-width: 200px;
+        flex: 1;
+    }
+
+    .navbar .search-container:focus-within {
+        width: 250px;
+        min-width: 250px;
+    }
+
+    .navbar .logo {
+        flex-shrink: 0;
+    }
+}
+
+/* Mobile Small (up to 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        width: calc(100% - 20px);
+        padding: 12px 15px;
+        top: 15px;
+    }
+
+    .navbar .logo-text {
+        font-size: 18px;
+    }
+
+    .navbar .logo-icon {
+        font-size: 20px;
+    }
+
+    .navbar .search-container {
+        width: 160px;
+        min-width: 160px;
+    }
+
+    .navbar .search-container:focus-within {
+        width: 200px;
+        min-width: 200px;
+    }
+}

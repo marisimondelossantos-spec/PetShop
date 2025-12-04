@@ -1,10 +1,22 @@
-class AuthModalManager {
+/**
+ * @module auth
+ * @description Authentication module - handles login, signup, logout, user menu, and token management
+ * @requires StorageService from storage.js (window.StorageService)
+ */
+
+// ========================================
+// AUTH MODAL MANAGER CLASS
+// ========================================
+
+export class AuthModalManager {
   constructor() {
     this.authModal = null;
     this.currentForm = 'login'; // 'login' or 'signup'
-    this.init();
   }
 
+  /**
+   * Initialize the authentication system
+   */
   init() {
     this.addAuthModalToBody();
     this.setupModalTriggers();
@@ -12,6 +24,9 @@ class AuthModalManager {
     this.setupPasswordToggles();
   }
 
+  /**
+   * Inject auth modal HTML into the DOM
+   */
   addAuthModalToBody() {
     const modalHTML = `
       <!-- Auth Modal Isolation Wrapper -->
@@ -103,51 +118,16 @@ class AuthModalManager {
                         </div>
                         <div class="col-md-4">
                           <label for="province" class="form-label">Province <span class="text-danger">*</span></label>
-                          <select class="form-control" id="province" required>
-                            <option value="">Select Province</option>
-                            <option value="Metro Manila">Metro Manila</option>
-                            <option value="Abra">Abra</option>
-                            <option value="Agusan del Norte">Agusan del Norte</option>
-                            <option value="Agusan del Sur">Agusan del Sur</option>
-                            <option value="Aklan">Aklan</option>
-                            <option value="Albay">Albay</option>
-                            <option value="Antique">Antique</option>
-                            <option value="Bataan">Bataan</option>
-                            <option value="Batanes">Batanes</option>
-                            <option value="Batangas">Batangas</option>
-                            <option value="Benguet">Benguet</option>
-                            <option value="Bohol">Bohol</option>
-                            <option value="Bukidnon">Bukidnon</option>
-                            <option value="Bulacan">Bulacan</option>
-                            <option value="Cagayan">Cagayan</option>
-                            <option value="Camarines Norte">Camarines Norte</option>
-                            <option value="Camarines Sur">Camarines Sur</option>
-                            <option value="Camiguin">Camiguin</option>
-                            <option value="Capiz">Capiz</option>
-                            <option value="Cavite">Cavite</option>
-                            <option value="Cebu">Cebu</option>
-                            <option value="Davao del Norte">Davao del Norte</option>
-                            <option value="Davao del Sur">Davao del Sur</option>
-                            <option value="Davao Oriental">Davao Oriental</option>
-                            <option value="Ilocos Norte">Ilocos Norte</option>
-                            <option value="Ilocos Sur">Ilocos Sur</option>
-                            <option value="Iloilo">Iloilo</option>
-                            <option value="Laguna">Laguna</option>
-                            <option value="La Union">La Union</option>
-                            <option value="Pampanga">Pampanga</option>
-                            <option value="Pangasinan">Pangasinan</option>
-                            <option value="Quezon">Quezon</option>
-                            <option value="Rizal">Rizal</option>
-                          </select>
+                          <input type="text" class="form-control" id="province" placeholder="Province" required>
                         </div>
                         <div class="col-md-4">
                           <label for="zipCode" class="form-label">Zip Code <span class="text-danger">*</span></label>
-                          <input type="text" class="form-control" id="zipCode" placeholder="4 digits" pattern="[0-9]{4}" maxlength="4" required>
+                          <input type="text" class="form-control" id="zipCode" placeholder="0000" pattern="[0-9]{4}" maxlength="4" required>
                         </div>
                       </div>
                     </div>
-                    
-                    <!-- Password Fields -->
+
+                    <!-- Password -->
                     <div class="mb-3">
                       <label for="signupPassword" class="form-label">Password <span class="text-danger">*</span></label>
                       <div class="input-group">
@@ -156,14 +136,6 @@ class AuthModalManager {
                           <i class="fas fa-eye"></i>
                         </button>
                       </div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="confirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
-                      <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="agreeTerms" required>
-                      <label class="form-check-label" for="agreeTerms">I agree to the Terms and Conditions</label>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Sign Up</button>
                   </form>
@@ -178,71 +150,63 @@ class AuthModalManager {
       </div>
     `;
 
+    // Inject modal into body
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-    // Initialize Bootstrap modal instance
-    const authModalEl = document.getElementById('authModal');
-    this.authModal = new bootstrap.Modal(authModalEl);
+    // Initialize Bootstrap modal
+    const modalEl = document.getElementById('authModal');
+    if (modalEl && typeof bootstrap !== 'undefined') {
+      this.authModal = new bootstrap.Modal(modalEl);
 
-    // Setup form switching
-    this.setupFormSwitching();
+      // Setup form switchers after modal is in DOM
+      document.getElementById('switchToSignup')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.showSignupForm();
+      });
 
-    // Handle modal close events
-    authModalEl.addEventListener('hidden.bs.modal', () => {
-      this.resetForms();
-    });
+      document.getElementById('switchToLogin')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.showLoginForm();
+      });
+    }
   }
 
-  setupFormSwitching() {
-    // Switch: Login → Signup
-    document.getElementById('switchToSignup')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      this.showSignupForm();
-    });
-
-    // Switch: Signup → Login
-    document.getElementById('switchToLogin')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      this.showLoginForm();
-    });
-  }
-
+  /**
+   * Show login form
+   */
   showLoginForm() {
-    // Update title with paw icon
     document.getElementById('authModalTitle').innerHTML = '<i class="fas fa-paw"></i> Welcome Back!';
-
-    // Switch containers (using inline styles for reliability)
     document.getElementById('loginFormContainer').style.display = 'block';
     document.getElementById('signupFormContainer').style.display = 'none';
-
-    // Update current form
     this.currentForm = 'login';
   }
 
+  /**
+   * Show signup form
+   */
   showSignupForm() {
-    // Update title with paw icon
     document.getElementById('authModalTitle').innerHTML = '<i class="fas fa-paw"></i> Create Account';
-
-    // Switch containers (using inline styles for reliability)
     document.getElementById('loginFormContainer').style.display = 'none';
     document.getElementById('signupFormContainer').style.display = 'block';
-
-    // Update current form
     this.currentForm = 'signup';
   }
 
+  /**
+   * Open auth modal with specific form
+   * @param {string} formType - 'login' or 'signup'
+   */
   openAuthModal(formType = 'login') {
-    // Show correct form
     if (formType === 'login') {
       this.showLoginForm();
     } else {
       this.showSignupForm();
     }
-
-    // Open modal
-    this.authModal.show();
+    this.authModal?.show();
   }
 
+  /**
+   * Setup click handlers for auth modal triggers
+   */
   setupModalTriggers() {
     // Handle all elements with data-auth attributes
     document.addEventListener('click', (e) => {
@@ -263,7 +227,7 @@ class AuthModalManager {
         e.preventDefault();
         this.openAuthModal('login');
       });
-      loginTrigger.setAttribute('data-auth', 'login'); // Add new attribute
+      loginTrigger.setAttribute('data-auth', 'login');
     }
 
     if (signupTrigger) {
@@ -271,10 +235,13 @@ class AuthModalManager {
         e.preventDefault();
         this.openAuthModal('signup');
       });
-      signupTrigger.setAttribute('data-auth', 'signup'); // Add new attribute
+      signupTrigger.setAttribute('data-auth', 'signup');
     }
   }
 
+  /**
+   * Setup form submission handlers
+   */
   setupFormValidation() {
     // Login form
     const loginForm = document.getElementById('loginForm');
@@ -295,12 +262,26 @@ class AuthModalManager {
     }
   }
 
+  /**
+   * Setup password visibility toggles
+   */
   setupPasswordToggles() {
     // Login password toggle
     const toggleLoginPassword = document.getElementById('toggleLoginPassword');
     if (toggleLoginPassword) {
       toggleLoginPassword.addEventListener('click', () => {
-        this.togglePassword('loginPassword', toggleLoginPassword);
+        const passwordInput = document.getElementById('loginPassword');
+        const icon = toggleLoginPassword.querySelector('i');
+
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+        } else {
+          passwordInput.type = 'password';
+          icon.classList.remove('fa-eye-slash');
+          icon.classList.add('fa-eye');
+        }
       });
     }
 
@@ -308,206 +289,261 @@ class AuthModalManager {
     const toggleSignupPassword = document.getElementById('toggleSignupPassword');
     if (toggleSignupPassword) {
       toggleSignupPassword.addEventListener('click', () => {
-        this.togglePassword('signupPassword', toggleSignupPassword);
+        const passwordInput = document.getElementById('signupPassword');
+        const icon = toggleSignupPassword.querySelector('i');
+
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+        } else {
+          passwordInput.type = 'password';
+          icon.classList.remove('fa-eye-slash');
+          icon.classList.add('fa-eye');
+        }
       });
     }
   }
 
-  togglePassword(inputId, button) {
-    const input = document.getElementById(inputId);
-    const icon = button.querySelector('i');
-
-    if (input.type === 'password') {
-      input.type = 'text';
-      icon.classList.remove('fa-eye');
-      icon.classList.add('fa-eye-slash');
-    } else {
-      input.type = 'password';
-      icon.classList.remove('fa-eye-slash');
-      icon.classList.add('fa-eye');
-    }
-  }
-
+  /**
+   * Handle login form submission
+   * @param {HTMLFormElement} form - The login form element
+   */
   handleLogin(form) {
     const email = form.querySelector('#loginEmail').value;
     const password = form.querySelector('#loginPassword').value;
+    const rememberMe = form.querySelector('#rememberMe').checked;
 
-    // Basic validation
-    if (!email || !password) {
-      this.showError('Please fill in all fields');
-      return;
-    }
+    // TODO: Replace with PHP backend API call
+    // Example:
+    // fetch('backend/login.php', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ email, password, rememberMe })
+    // })
+    // .then(res => res.json())
+    // .then(data => {
+    //   if (data.success) {
+    //     const userData = data.user;
+    //     // ... proceed with login
+    //   } else {
+    //     this.showError(data.message);
+    //   }
+    // });
 
-    // Check if user exists in localStorage (from previous signup)
-    const storedUsers = window.StorageService.getUsers();
-    const existingUser = storedUsers.find(u => u.email === email);
-
-    // For demo purposes, accept any login or use stored user
-    const userData = existingUser || {
-      firstName: email.split('@')[0],
-      lastName: 'User',
-      email: email,
-      contactNumber: '09171234567',
-      address: {
-        street: 'Sample Street',
-        zone: 'Sample Zone',
-        city: 'Sample City',
-        province: 'Metro Manila',
-        zipCode: '1000'
-      }
-    };
-
-    // Store current user session
-    window.StorageService.setCurrentUser(userData);
-    window.StorageService.setLoggedIn(true);
-
-    console.log('Login successful:', userData);
-
-    // Show success message
-    this.showSuccess('Login successful!');
-
-    // Close modal after success
-    setTimeout(() => {
-      this.authModal.hide();
-      // Update navbar to show logged in state
-      this.updateNavbarForLoggedInUser(userData);
-      // Trigger navbar renderer to update
-      if (window.navbarRenderer) {
-        window.navbarRenderer.update();
-        document.dispatchEvent(new CustomEvent('authStateChanged'));
-      }
-    }, 1500);
-  }
-
-  handleSignup(form) {
-    // Collect all form data
-    const firstName = form.querySelector('#firstName').value.trim();
-    const middleName = form.querySelector('#middleName').value.trim();
-    const lastName = form.querySelector('#lastName').value.trim();
-    const contactNumber = form.querySelector('#contactNumber').value.trim();
-    const email = form.querySelector('#signupEmail').value.trim();
-    const street = form.querySelector('#street').value.trim();
-    const zone = form.querySelector('#zone').value.trim();
-    const city = form.querySelector('#city').value.trim();
-    const province = form.querySelector('#province').value;
-    const zipCode = form.querySelector('#zipCode').value.trim();
-    const password = form.querySelector('#signupPassword').value;
-    const confirmPassword = form.querySelector('#confirmPassword').value;
-    const agreeTerms = form.querySelector('#agreeTerms').checked;
-
-    // Validation
-    if (!firstName || !lastName || !contactNumber || !email || !street || !zone || !city || !province || !zipCode || !password || !confirmPassword) {
-      this.showError('Please fill in all required fields');
-      return;
-    }
-
-    // Validate contact number (11 digits)
-    if (!/^[0-9]{11}$/.test(contactNumber)) {
-      this.showError('Contact number must be 11 digits');
-      return;
-    }
-
-    // Validate zip code (4 digits)
-    if (!/^[0-9]{4}$/.test(zipCode)) {
-      this.showError('Zip code must be 4 digits');
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      this.showError('Passwords do not match');
-      return;
-    }
-
-    if (!agreeTerms) {
-      this.showError('Please agree to the terms and conditions');
-      return;
-    }
-
-    // Create user data object
+    // TEMPORARY: Mock login logic (remove when backend is ready)
+    const username = email.split('@')[0];
     const userData = {
-      firstName,
-      middleName,
-      lastName,
-      contactNumber,
-      email,
-      address: {
-        street,
-        zone,
-        city,
-        province,
-        zipCode
-      },
-      password
+      email: email,
+      firstName: username.charAt(0).toUpperCase() + username.slice(1),
+      lastName: 'User',
+      isLoggedIn: true,
+      loginTime: new Date().toISOString()
     };
 
-    // Store user in users array
-    const users = window.StorageService.getUsers();
+    // Save to storage
+    window.StorageService.setCurrentUser(userData);
+    window.StorageService.setLoginState(true);
 
-    // Check if user already exists
-    if (users.some(u => u.email === email)) {
-      this.showError('An account with this email already exists');
-      return;
-    }
+    // Update UI
+    document.documentElement.classList.add('user-logged-in');
+    this.updateNavbarForLoggedInUser(userData);
 
-    users.push(userData);
-    window.StorageService.setUsers(users);
-
-    console.log('Signup successful:', userData);
+    // Close modal
+    this.authModal?.hide();
+    this.resetForms();
 
     // Show success message
-    this.showSuccess('Account created successfully! Logging you in...');
-
-    // Auto-login the user after signup
-    setTimeout(() => {
-      // Store current user session
-      window.StorageService.setCurrentUser(userData);
-      window.StorageService.setLoggedIn(true);
-
-      this.authModal.hide();
-      // Update navbar to show logged in state
-      this.updateNavbarForLoggedInUser(userData);
-      // Trigger navbar renderer to update
-      if (window.navbarRenderer) {
-        window.navbarRenderer.update();
-        document.dispatchEvent(new CustomEvent('authStateChanged'));
-      }
-    }, 1500);
+    this.showSuccess('Login successful! Welcome back!');
   }
 
-  updateNavbarForLoggedInUser(userData) {
-    // Ensure html class is set (redundant check for safety)
+  /**
+   * Handle signup form submission
+   * @param {HTMLFormElement} form - The signup form element
+   */
+  handleSignup(form) {
+    // TODO: Replace with PHP backend API call
+    // Example:
+    // fetch('backend/signup.php', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(userData)
+    // })
+    // .then(res => res.json())
+    // .then(data => {
+    //   if (data.success) {
+    //     const userData = data.user;
+    //     // ... proceed with signup
+    //   } else {
+    //     this.showError(data.message);
+    //   }
+    // });
+
+    // TEMPORARY: Mock signup logic (remove when backend is ready)
+    const password = form.querySelector('#signupPassword').value; // Get password for backend
+    const userData = {
+      firstName: form.querySelector('#firstName').value,
+      lastName: form.querySelector('#lastName').value,
+      middleName: form.querySelector('#middleName').value,
+      contactNumber: form.querySelector('#contactNumber').value,
+      email: form.querySelector('#signupEmail').value,
+      address: {
+        street: form.querySelector('#street').value,
+        zone: form.querySelector('#zone').value,
+        city: form.querySelector('#city').value,
+        province: form.querySelector('#province').value,
+        zipCode: form.querySelector('#zipCode').value
+      },
+      isLoggedIn: true,
+      signupTime: new Date().toISOString()
+      // Note: password should be hashed on backend, not stored in user object
+    };
+
+    // Save to storage
+    window.StorageService.setCurrentUser(userData);
+    window.StorageService.setLoginState(true);
+
+    // Update UI
     document.documentElement.classList.add('user-logged-in');
+    this.updateNavbarForLoggedInUser(userData);
 
-    const firstName = userData.firstName || userData.email.split('@')[0];
-    const greetingEl = document.querySelector('.user-greeting');
+    // Close modal
+    this.authModal?.hide();
+    this.resetForms();
 
-    if (greetingEl) {
-      greetingEl.textContent = `Hi, ${firstName}!`;
+    // Show success message
+    this.showSuccess('Account created successfully! Welcome!');
+  }
+
+  /**
+   * Handle user logout
+   */
+  handleLogout() {
+    // TODO: Replace with PHP backend API call
+    // Example:
+    // fetch('backend/logout.php', { method: 'POST' })
+    // .then(() => {
+    //   // ... proceed with logout
+    // });
+
+    // Clear storage
+    window.StorageService.clearAll();
+
+    // Update UI
+    document.documentElement.classList.remove('user-logged-in');
+    this.resetNavbarForLoggedOutUser();
+
+    // Show message
+    this.showSuccess('Logged out successfully!');
+
+    // Redirect to home if on restricted page
+    if (window.location.pathname.includes('profile')) {
+      setTimeout(() => window.location.href = 'index.html', 1000);
     }
   }
 
-  handleLogout() {
-    // Clear user session
-    window.StorageService.logout();
+  /**
+   * Update navbar to show user menu for logged-in user
+   * @param {Object} userData - User data object
+   */
+  updateNavbarForLoggedInUser(userData) {
+    const authButtons = document.querySelector('.auth-buttons');
+    if (!authButtons) return;
 
-    // Show logout message
-    this.showSuccess('Logged out successfully');
+    const userName = userData.firstName || 'User';
+    const userMenuHTML = `
+      <div class="user-menu">
+        <button class="user-menu-toggle" id="userMenuToggle">
+          <i class="fas fa-user-circle"></i>
+          <span class="user-name">${userName}</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="user-menu-dropdown" id="userMenuDropdown">
+          <a href="profile.html" class="user-menu-item">
+            <i class="fas fa-user"></i>
+            <span>My Profile</span>
+          </a>
+          <a href="#" class="user-menu-item" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+      </div>
+    `;
 
-    // Reset navbar state
-    document.documentElement.classList.remove('user-logged-in');
+    authButtons.innerHTML = userMenuHTML;
 
-    // Clear greeting (optional, but good for cleanup)
-    const greetingEl = document.querySelector('.user-greeting');
-    if (greetingEl) greetingEl.textContent = 'Hi, User!';
+    // Setup user menu toggle
+    this.setupUserMenu();
   }
 
+  /**
+   * Reset navbar to show login/signup buttons for logged-out user
+   */
+  resetNavbarForLoggedOutUser() {
+    const authButtons = document.querySelector('.auth-buttons');
+    if (!authButtons) return;
 
+    authButtons.innerHTML = `
+      <button class="btn-login" data-auth="login">Login</button>
+      <button class="btn-signup" data-auth="signup">Sign Up</button>
+    `;
+  }
+
+  /**
+   * Setup user menu dropdown toggle
+   */
+  setupUserMenu() {
+    const userMenuToggle = document.getElementById('userMenuToggle');
+    const userMenuDropdown = document.getElementById('userMenuDropdown');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (userMenuToggle && userMenuDropdown) {
+      // Toggle dropdown
+      userMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userMenuDropdown.classList.toggle('show');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', () => {
+        userMenuDropdown.classList.remove('show');
+      });
+
+      // Prevent dropdown close when clicking inside
+      userMenuDropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    // Logout button
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.handleLogout();
+      });
+    }
+  }
+
+  /**
+   * Check current auth state and update UI accordingly
+   */
+  checkAuthState() {
+    const isLoggedIn = window.StorageService.isLoggedIn();
+    const userData = window.StorageService.getCurrentUser();
+
+    if (isLoggedIn && userData) {
+      document.documentElement.classList.add('user-logged-in');
+      this.updateNavbarForLoggedInUser(userData);
+    }
+  }
+
+  /**
+   * Reset all forms to initial state
+   */
   resetForms() {
-    // Clear all form fields
     document.getElementById('loginForm')?.reset();
     document.getElementById('signupForm')?.reset();
-
-    // Reset to login form
     this.showLoginForm();
 
     // Reset password visibility
@@ -523,14 +559,27 @@ class AuthModalManager {
     });
   }
 
+  /**
+   * Show error notification
+   * @param {string} message - Error message to display
+   */
   showError(message) {
     this.showNotification(message, 'error');
   }
 
+  /**
+   * Show success notification
+   * @param {string} message - Success message to display
+   */
   showSuccess(message) {
     this.showNotification(message, 'success');
   }
 
+  /**
+   * Show notification toast
+   * @param {string} message - Message to display
+   * @param {string} type - 'success', 'error', or 'info'
+   */
   showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -552,42 +601,36 @@ class AuthModalManager {
       setTimeout(() => notification.remove(), 300);
     }, 3000);
   }
-
-  checkAuthState() {
-    const isLoggedIn = window.StorageService.isLoggedIn();
-    const userData = window.StorageService.getCurrentUser();
-
-    if (isLoggedIn && userData) {
-      document.documentElement.classList.add('user-logged-in');
-      this.updateNavbarForLoggedInUser(userData);
-    }
-  }
 }
 
-// Initialize when DOM is ready - robust initialization
-function initAuthModal() {
+// ========================================
+// INITIALIZATION FUNCTION
+// ========================================
+
+/**
+ * Initialize the authentication system
+ * Call this function when DOM is ready
+ */
+export function initAuth() {
   if (!window.authModalManager) {
     window.authModalManager = new AuthModalManager();
-    // Check authentication state on page load
+    window.authModalManager.init();
     window.authModalManager.checkAuthState();
-    console.log('AuthModalManager initialized');
+    console.log('✅ Auth module initialized');
   }
 }
 
-// Try multiple initialization strategies to handle different loading scenarios
-if (document.readyState === 'loading') {
-  // Document still loading, wait for DOMContentLoaded
-  document.addEventListener('DOMContentLoaded', initAuthModal);
-} else {
-  // Document already loaded (interactive or complete)
-  // Initialize immediately
-  initAuthModal();
-}
+/**
+ * Immediately check and apply auth state (for FOUC prevention)
+ * This runs BEFORE DOM ready to prevent flash of unauthenticated content
+ */
+export function immediateAuthCheck() {
+  const isLoggedIn = (window.StorageService ?
+    window.StorageService.isLoggedIn() :
+    localStorage.getItem('petshop_is_logged_in') === 'true'
+  );
 
-// Fallback: Also listen to DOMContentLoaded in case readyState changes
-document.addEventListener('DOMContentLoaded', initAuthModal);
-
-// Extra fallback for file:// protocol issues
-if (document.readyState === 'complete') {
-  setTimeout(initAuthModal, 100);
+  if (isLoggedIn) {
+    document.documentElement.classList.add('user-logged-in');
+  }
 }

@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+  <style>
+    html {
+      visibility: hidden;
+      opacity: 0;
+    }
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Happy Animal Pet Shop</title>
@@ -12,243 +18,203 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/general.css">
-  <link rel="stylesheet" href="css/about.css">
-  <link rel="stylesheet" href="css/auth-modal.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages/about.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main-jquery.js"></script>
-  <script src="js/auth-modals-updated.js" defer></script>
-  <script src="js/about.js" defer></script>
-  <script src="js/main.js" defer></script>
-
+  <script src="js/services/storage.js"></script>
+  <script src="js/components/loader.js"></script>
 </head>
 
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="navbar-left">
-      <div class="logo">
-        <i class="fas fa-paw logo-icon"></i>
-        <div class="logo-text">Happy Animal</div>
-      </div>
-      <div class="search-container">
-        <input type="text" placeholder="Search products...">
-        <a href="#"><i class="fas fa-search"></i></a>
-      </div>
-    </div>
+  <div id="navbar"></div>
 
-    <button class="mobile-toggle">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="Shop.html">Shop</a>
-      <a href="about.html" class="active">About Us</a>
-      <a href="contact.html">Contact Us</a>
-    </div>
-
-    <div class="auth-buttons">
-      <a href="#" id="openLoginModal" class="btn-login">Log In</a>
-      <a href="#" id="openSignupModal" class="btn-signup">Sign Up</a>
-    </div>
-  </nav>
-
-  <!-- ABOUT OUR STORE -->
-  <div class="about-our-store">
+  <!-- Hero Section -->
+  <section class="hero-section">
     <div class="container">
-      <div class="text-header">
-        <h2>About our store</h2>
-      </div>
-      <div class="text-columns">
-        <p class="column-1">
-          Welcome to our pet shop, your one-stop destination for everything your pets could ever need – from nutritious
-          food and tasty treats to comfortable bedding, fun toys, grooming supplies, and accessories to keep them happy,
-          healthy, and loved every day.
-        </p>
-        <p class="column-2">
-          Welcome to our pet shop, your one-stop destination for everything your pets could ever need – from nutritious
-          food and tasty treats to comfortable bedding, fun toys, grooming supplies, and accessories to keep them happy,
-          healthy, and loved every day. Our friendly staff is always here to help you find the perfect products for your
-          furry, feathery, or scaly friends, making every visit a joyful experience for both you and your pets.
-        </p>
-      </div>
-      <div class="stats">
-        <div class="stat-item">
-          <div class="stat-number">2k+</div>
-          <div class="stat-label">Happy Clients</div>
+      <h1 class="hero-title">About Our Pet Shop</h1>
+      <p class="hero-subtitle">Your trusted partner in pet care - serving pet lovers with quality products and expert
+        advice</p>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="our-story">
+    <div class="container">
+      <div class="story-content">
+        <div class="story-image">
+          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&h=600&fit=crop"
+            alt="Our Pet Shop Story">
         </div>
-        <div class="stat-item">
-          <div class="stat-number">72</div>
-          <div class="stat-label">Brands</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">1.8k+</div>
-          <div class="stat-label">Products</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">28</div>
-          <div class="stat-label">Years in business</div>
+        <div class="story-text">
+          <h2>Our Story</h2>
+          <p>
+            Founded over a decade ago with a simple mission: to provide pet owners with the highest quality products and
+            expert care advice. What started as a small neighborhood shop has grown into a trusted destination for
+            thousands of pet lovers.
+          </p>
+          <p>
+            Our passion for animals drives everything we do. From carefully selecting each product to training our staff
+            in pet care expertise, we're committed to making sure your furry, feathered, or scaly friends get nothing
+            but the best.
+          </p>
+          <p>
+            Today, we're proud to serve a vibrant community of pet parents who trust us with their beloved companions'
+            wellbeing. Every wagging tail and happy purr reminds us why we do what we do.
+          </p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- FOUNDER INFO BLOCK -->
-  <div class="info-block">
+  <!-- Mission & Vision Section -->
+  <section class="mission-vision">
     <div class="container">
-      <div class="founder-img">Founder Image</div>
-      <div class="founder-text">
-        <div class="founder-header">
+      <h2 class="section-title">Our Mission & Vision</h2>
+      <div class="mission-vision-grid">
+        <div class="mission-card">
+          <i class="fas fa-bullseye"></i>
+          <h3>Our Mission</h3>
+          <p>
+            To provide the highest quality pet products and services while fostering a community that celebrates the
+            special bond between pets and their owners. We're committed to expert advice, exceptional service, and
+            products that truly make a difference in your pet's life.
+          </p>
+        </div>
+        <div class="vision-card">
+          <i class="fas fa-eye"></i>
+          <h3>Our Vision</h3>
+          <p>
+            To be the most trusted and beloved pet shop in the community, where every pet parent feels welcomed,
+            supported, and confident that they're giving their companions the care they deserve. We envision a world
+            where every pet lives their happiest, healthiest life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-award"></i>
+          <h3>Premium Quality</h3>
+          <p>Only the best products from trusted brands that meet our strict quality standards.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-heart"></i>
+          <h3>Expert Care</h3>
+          <p>Knowledgeable staff trained to provide professional advice for all your pet care needs.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-shipping-fast"></i>
+          <h3>Fast Delivery</h3>
+          <p>Quick and reliable shipping to get products to your pets when they need them.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-dollar-sign"></i>
+          <h3>Best Prices</h3>
+          <p>Competitive pricing without compromising on quality or service excellence.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-smile"></i>
+          <h3>Happy Customers</h3>
+          <p>Thousands of satisfied pet parents who trust us with their companions' wellbeing.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-headset"></i>
+          <h3>24/7 Support</h3>
+          <p>Always here to help with questions, concerns, or advice about your pet's care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title">Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://i.pravatar.cc/400?img=5" alt="Caroline Washington">
+          </div>
+          <h3>Caroline Washington</h3>
+          <p class="role">Store Manager</p>
+          <p class="bio">Passionate about pets with 10+ years of experience in animal care and customer service</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://i.pravatar.cc/400?img=12" alt="Gerald Ferguson">
+          </div>
+          <h3>Gerald Ferguson</h3>
+          <p class="role">Pet Nutrition Specialist</p>
+          <p class="bio">Expert in pet dietary needs with certifications in animal nutrition and wellness</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://i.pravatar.cc/400?img=9" alt="Averi Maddox">
+          </div>
+          <h3>Averi Maddox</h3>
+          <p class="role">Customer Care Lead</p>
+          <p class="bio">Dedicated to ensuring every customer finds exactly what their pet needs</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://i.pravatar.cc/400?img=15" alt="Taylor Joshua">
+          </div>
           <h3>Taylor Joshua</h3>
-          <div class="role">Founder</div>
-        </div>
-        <div class="description">
-          <p>Nisl nunc vitae integer ridiculus ultrices quam a scelerisque est. Sollicitudin volutpat blandit maecenas
-            ornare dictum tempor.</p>
-          <p>Eu arcu consectetur etiam bibendum fermentum sed lobortis fringilla imperdiet. Aliquet ultrices risus dolor
-            gravida.</p>
-          <p>Adipiscing tincidunt imperdiet at cursus ipsum vulputate pharetra. Turpis pulvinar sagittis tristique
-            aliquam
-            vitae ipsum dui.</p>
+          <p class="role">Founder & CEO</p>
+          <p class="bio">Animal lover who turned a dream of helping pets into a thriving community business</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- OUR TEAM -->
-  <div class="our-team">
+  <!-- Statistics Section -->
+  <section class="stats-section">
     <div class="container">
-      <div class="team-header">
-        <h2>Our Team</h2>
-      </div>
-      <div class="team-cards">
-        <div class="team-card">
-          <div class="team-img">Caroline Image</div>
-          <div class="team-info">
-            <h3>Caroline Washington</h3>
-            <p>Seller</p>
-          </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <i class="fas fa-paw"></i>
+          <div class="stat-number">2,000+</div>
+          <div class="stat-label">Happy Pets</div>
         </div>
-        <div class="team-card">
-          <div class="team-img">Gerald Image</div>
-          <div class="team-info">
-            <h3>Gerald Ferguson</h3>
-            <p>Seller</p>
-          </div>
+        <div class="stat-item">
+          <i class="fas fa-users"></i>
+          <div class="stat-number">1,500+</div>
+          <div class="stat-label">Loyal Customers</div>
         </div>
-        <div class="team-card">
-          <div class="team-img">Averi Image</div>
-          <div class="team-info">
-            <h3>Averi Maddox</h3>
-            <p>Seller</p>
-          </div>
+        <div class="stat-item">
+          <i class="fas fa-box"></i>
+          <div class="stat-number">1,800+</div>
+          <div class="stat-label">Quality Products</div>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-calendar"></i>
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Experience</div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- TESTIMONIALS -->
-  <div class="testimonials">
+  <!-- CTA Section -->
+  <section class="cta-section">
     <div class="container">
-      <div class="testimonial-content">
-        <div class="testimonial-text">
-          <div class="testimonial-header">
-            <h4>Testimonials</h4>
-            <h2>What people say about us</h2>
-          </div>
-          <div class="stars-text">
-            <div class="stars">
-              <img class="star" src="assets/images/star.png" alt="*" />
-              <img class="star" src="assets/images/star.png" alt="*" />
-              <img class="star" src="assets/images/star.png" alt="*" />
-              <img class="star" src="assets/images/star.png" alt="*" />
-              <img class="star" src="assets/images/star.png" alt="*" />
-            </div>
-            <p class="testimonial-quote">
-              Morbi viverra eleifend in cras orci a leo tellus. Nunc purus adipiscing diam aliquet lorem nunc. Ipsum
-              euismod risus amet eget non. Pulvinar condimentum ultricies tellus a non pellentesque odio pellentesque
-              blandit. Aliquet et massa eget vitae justo tellus donec ac enim. Rhoncus adipiscing cursus cras
-              suspendisse
-              duis consectetur volutpat. Sed varius et phasellus ac scelerisque dignissim.
-            </p>
-          </div>
-          <div class="customer-info">
-            <h5>Gerald Ferguson</h5>
-            <p>Customer</p>
-          </div>
-        </div>
-        <div class="testimonial-image">
-          <img src="assets/images/about/img/shapes-pattern-paws-img.png" alt="Decorative paws pattern" />
-        </div>
-      </div>
+      <h2>Ready to Pamper Your Pet?</h2>
+      <p>Visit our shop and discover premium products for your furry friends</p>
+      <a href="Shop.html" class="cta-btn">Visit Our Shop</a>
     </div>
-  </div>
+  </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="icons-text">
-        <div class="logo-text-icons">
-          <div class="logo">
-            <i class="fas fa-paw logo-icon"></i>
-            <div class="logo-text">Happy Pet Shop</div>
-          </div>
-          <p class="home-textp">
-            At Happy Animal Pet Shop, we believe pets make life brighter.
-            Thank you for stopping by, and remember: a happy pet makes a happy home.
-          </p>
-          <div class="social-icons">
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-              <img src="assets/images/home/footer/facebook.png" alt="Facebook" />
-            </a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-              <img src="assets/images/home/footer/instagram.png" alt="Instagram" />
-            </a>
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-              <img src="assets/images/home/footer/x.png" alt="Twitter" />
-            </a>
-          </div>
-        </div>
-
-        <div class="text">
-          <div class="text-1">Company</div>
-          <div class="text-2">
-            <a href="about.html" class="footer-link">About Us</a>
-          </div>
-        </div>
-
-        <div class="text">
-          <div class="text-1">Useful Links</div>
-          <div class="text-2">
-            <a href="new-products.html" class="footer-link">New products</a>
-            <a href="best-sellers.html" class="footer-link">Best sellers</a>
-            <a href="faq.html" class="footer-link">F.A.Q</a>
-          </div>
-        </div>
-
-        <div class="text">
-          <div class="text-1">Customer Service</div>
-          <div class="text-2">
-            <a href="contact.html" class="footer-link">Contact Us</a>
-          </div>
-        </div>
-
-        <div class="text">
-          <div class="text-1">Store</div>
-          <div class="text">
-            <a href="https://maps.google.com/?q=Abella+Bldg+Elias+Angeles+St+Sta+Cruz" target="_blank"
-              class="footer-link">Abella Bldg. Elias Angeles St., Sta.Cruz</a>
-            <div class="text-3">
-              <a href="tel:09989898301" class="footer-link">0998 989 8301</a>
-              <a href="mailto:john.tuazon24@yahoo.com" class="footer-link">john.tuazon24@yahoo.com</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="footer"></div>
+  <script type="module" src="js/modules/init.js"></script>
 </body>
 
 </html>

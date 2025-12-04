@@ -1,0 +1,211 @@
+/* ===================================== */
+/* FOOTER COMPONENT STYLES */
+/* ===================================== */
+
+.footer {
+    background-color: #1a1a1a;
+    color: var(--white);
+    padding: 60px 0 30px;
+    margin-top: 80px;
+}
+
+.footer .container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ===================================== */
+/* FOOTER GRID LAYOUT */
+/* ===================================== */
+
+.footer .icons-text {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+    gap: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===================================== */
+/* LOGO AND SOCIAL SECTION */
+/* ===================================== */
+
+.footer .logo-text-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer .logo-icon {
+    font-size: 32px;
+    color: var(--primary-orange);
+}
+
+.footer .logo-text {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--white);
+}
+
+.footer .home-textp {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* ===================================== */
+/* SOCIAL ICONS */
+/* ===================================== */
+
+.footer .social-icons {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.footer .social-icons a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition-base);
+}
+
+.footer .social-icons a:hover {
+    background-color: var(--primary-orange);
+    transform: translateY(-3px);
+}
+
+.footer .social-icons img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/* ===================================== */
+/* FOOTER LINKS SECTIONS */
+/* ===================================== */
+
+.footer .text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer .text-1 {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+}
+
+.footer .text-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer .footer-link {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition-base);
+    display: inline-block;
+}
+
+.footer .footer-link:hover {
+    color: var(--primary-orange);
+    padding-left: 4px;
+}
+
+.footer .text-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+/* ===================================== */
+/* RESPONSIVE STYLES */
+/* ===================================== */
+
+/* Desktop Large (up to 1440px) */
+@media (max-width: 1440px) {
+    .footer .container {
+        padding: 0 30px;
+    }
+}
+
+/* Tablet (up to 1024px) */
+@media (max-width: 1024px) {
+    .footer {
+        padding: 60px 20px;
+    }
+
+    .footer .container {
+        padding: 0 20px;
+    }
+
+    .footer .icons-text {
+        gap: 30px;
+    }
+}
+
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+    .footer {
+        padding: 50px 15px;
+    }
+
+    .footer .container {
+        padding: 0 15px;
+    }
+
+    .footer .icons-text {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer .text {
+        width: 100%;
+    }
+}
+
+/* Mobile Small (up to 480px) */
+@media (max-width: 480px) {
+    .footer {
+        padding: 40px 15px 20px;
+    }
+
+    .footer .logo-text {
+        font-size: 20px;
+    }
+
+    .footer .logo-icon {
+        font-size: 28px;
+    }
+}
+
+.footer {
+    position: relative;
+    /* Or fixed if you want it always at bottom */
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}

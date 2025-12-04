@@ -5,13 +5,13 @@
 // UPDATE CART COUNT FUNCTION
 // ============================================
 function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cart = window.StorageService.getCart();
     const cartCount = document.getElementById('cart-count');
-    
+
     if (cartCount) {
         const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
         cartCount.textContent = totalItems;
-        
+
         // Show/hide badge based on count
         if (totalItems > 0) {
             cartCount.style.display = 'block';
@@ -153,13 +153,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const sorted = Array.from(cards);
 
         sorted.sort((a, b) => {
-            switch(value) {
-                case 'price-low':  return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+            switch (value) {
+                case 'price-low': return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
                 case 'price-high': return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
-                case 'name-az':    return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
-                case 'name-za':    return b.querySelector('h3').textContent.localeCompare(a.querySelector('h3').textContent);
-                case 'rating':     return parseInt(b.dataset.rating) - parseInt(a.dataset.rating);
-                default:           return 0;
+                case 'name-az': return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
+                case 'name-za': return b.querySelector('h3').textContent.localeCompare(a.querySelector('h3').textContent);
+                case 'rating': return parseInt(b.dataset.rating) - parseInt(a.dataset.rating);
+                default: return 0;
             }
         });
 
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // === CART COUNT UPDATE ===
     const updateCartCount = () => {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const cart = window.StorageService.getCart();
         const badge = document.querySelector('.cart-count');
         if (badge) badge.textContent = cart.length;
     };
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     updateCartCount(); // initial
-    
+
     // === ITEMS PER PAGE ===
     const itemsPerPageSelect = document.getElementById('items-per-page');
     if (itemsPerPageSelect) {
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 // PRODUCT DETAILS MODAL - COMPLETE & FIXED VERSION
 // ============================================
-(function() {
+(function () {
     'use strict';
 
     // Check if modal exists
@@ -234,13 +234,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
 
     // Handle clicks on Details buttons (view-details-btn) and Quick View buttons (quick-view-btn)
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         // Check if clicked on Details button or Quick View button
         const detailsBtn = e.target.closest('.view-details-btn, .quick-view-btn');
         if (!detailsBtn) return;
-        
+
         e.preventDefault(); // Prevent link navigation
-        
+
         const productCard = detailsBtn.closest('.product-card');
         if (!productCard) {
             console.error('Product card not found');
@@ -277,35 +277,35 @@ document.addEventListener('DOMContentLoaded', () => {
             // Basic product info
             id: card.dataset.productId || '',
             name: safeText('.product-title a, .product-title') || 'Product',
-            
+
             // Price information
             price: safeText('.current-price') || '',
             priceValue: parseFloat(card.dataset.price || safeText('.current-price').replace(/[^\d.]/g, '') || '0'),
             originalPrice: safeText('.original-price') || '',
             discount: safeText('.discount-percentage') || '',
-            
+
             // Rating information
             rating: parseFloat(card.dataset.rating || safeText('.rating-value') || '5'),
             reviewCount: safeText('.rating-count span') || safeText('.review-count').replace(/[()]/g, '') || '0',
-            
+
             // Image information
             image: card.querySelector('.product-image img')?.src || '',
             imageAlt: card.querySelector('.product-image img')?.alt || safeText('.product-title') || 'Product',
-            
+
             // Description
             description: safeText('.product-description-hidden') || 'No description available.',
-            
+
             // Category and brand
             category: safeText('.product-category'),
             brand: safeText('.product-brand'),
-            
+
             // Stock status
             stockStatus: safeText('.stock-status span') || safeText('.stock-status') || 'In Stock',
             stockClass: card.querySelector('.stock-status')?.className || 'stock-status in-stock',
-            
+
             // Wishlist status
             isWishlisted: card.querySelector('.wishlist-btn')?.classList.contains('active') || false,
-            
+
             // Additional info
             productId: safeText('.product-id-hidden[value]') ? card.querySelector('.product-id-hidden').value : '',
         };
@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = '';
         const fullStars = Math.floor(rating);
         const hasHalfStar = rating % 1 >= 0.5;
-        
+
         for (let i = 1; i <= 5; i++) {
             if (i <= fullStars) {
                 html += '<i class="fas fa-star" aria-hidden="true"></i>';
@@ -349,25 +349,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (el) el.textContent = text;
                 else console.warn(`Modal element not found: ${selector}`);
             };
-            
+
             const setHTML = (selector, html) => {
                 const el = modal.querySelector(selector);
                 if (el) el.innerHTML = html;
                 else console.warn(`Modal element not found: ${selector}`);
             };
-            
+
             const setSrc = (selector, src) => {
                 const el = modal.querySelector(selector);
                 if (el) el.src = src;
                 else console.warn(`Modal image not found: ${selector}`);
             };
-            
+
             const setAlt = (selector, alt) => {
                 const el = modal.querySelector(selector);
                 if (el) el.alt = alt;
                 else console.warn(`Modal image not found: ${selector}`);
             };
-            
+
             const setDisplay = (selector, display) => {
                 const el = modal.querySelector(selector);
                 if (el) el.style.display = display;
@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // === UPDATE MODAL CONTENT SAFELY ===
-            
+
             // Main image
             setSrc('#modalMainImage', data.image);
             setAlt('#modalMainImage', data.imageAlt);
@@ -387,10 +387,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Price information
             setText('.modal-price .current-price', data.price);
-            
+
             const originalPrice = modal.querySelector('.modal-price .original-price');
             const discountPercentage = modal.querySelector('.modal-price .discount-percentage');
-            
+
             if (originalPrice && discountPercentage) {
                 if (data.originalPrice && data.originalPrice !== data.price) {
                     setText('.modal-price .original-price', data.originalPrice);
@@ -451,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('modal-open');
             document.body.style.paddingRight = getScrollbarWidth() + 'px';
             modal.classList.add('active');
-            
+
             setTimeout(() => {
                 const closeBtn = modal.querySelector('.modal-close');
                 if (closeBtn) closeBtn.focus();
@@ -498,27 +498,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // MODAL EVENT LISTENERS
     // ============================================
-    
+
     // Close button
     modal.querySelector('.modal-close')?.addEventListener('click', closeModal);
-    
+
     // Overlay click to close
     modal.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
-    
+
     // ESC key to close
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
         }
     });
 
     // Also close when clicking overlay (outside modal content)
-    modal.querySelector('.modal-overlay')?.addEventListener('click', function() {
+    modal.querySelector('.modal-overlay')?.addEventListener('click', function () {
         closeModal();
     });
 
     // Prevent closing when clicking inside modal content
-    modal.querySelector('.modal-container')?.addEventListener('click', function(e) {
+    modal.querySelector('.modal-container')?.addEventListener('click', function (e) {
         e.stopPropagation();
     });
 
@@ -529,14 +529,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const plusBtn = modal.querySelector('.qty-btn.plus');
     const quantityInput = modal.querySelector('#modalQuantity');
 
-    minusBtn?.addEventListener('click', function() {
+    minusBtn?.addEventListener('click', function () {
         const currentValue = parseInt(quantityInput.value) || 1;
         if (currentValue > 1) {
             quantityInput.value = currentValue - 1;
         }
     });
 
-    plusBtn?.addEventListener('click', function() {
+    plusBtn?.addEventListener('click', function () {
         const currentValue = parseInt(quantityInput.value) || 1;
         if (currentValue < 99) {
             quantityInput.value = currentValue + 1;
@@ -546,7 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // ADD TO CART FROM MODAL
     // ============================================
-    modal.querySelector('.modal-add-to-cart')?.addEventListener('click', function() {
+    modal.querySelector('.modal-add-to-cart')?.addEventListener('click', function () {
         const btn = this;
         const quantity = parseInt(quantityInput?.value) || 1;
 
@@ -557,7 +557,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Simulate API call
         setTimeout(() => {
             try {
-                let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                let cart = window.StorageService.getCart();
                 const existingItem = cart.find(item => item.id === currentProductData.id);
 
                 if (existingItem) {
@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
 
-                localStorage.setItem('cart', JSON.stringify(cart));
+                window.StorageService.setCart(cart);
 
                 // Trigger cart update event
                 window.dispatchEvent(new CustomEvent('cart-updated', { detail: { product: currentProductData, quantity: quantity } }));
@@ -582,8 +582,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.classList.add('added');
 
                 // Trigger cart update event
-                window.dispatchEvent(new CustomEvent('cart-updated', { 
-                    detail: { productId: currentProductData.id, quantity } 
+                window.dispatchEvent(new CustomEvent('cart-updated', {
+                    detail: { productId: currentProductData.id, quantity }
                 }));
 
                 // Reset after delay
@@ -607,22 +607,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // WISHLIST TOGGLE IN MODAL
     // ============================================
-    modal.querySelector('.modal-wishlist-btn')?.addEventListener('click', function() {
+    modal.querySelector('.modal-wishlist-btn')?.addEventListener('click', function () {
         const btn = this;
         const icon = btn.querySelector('i');
-        let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+        let wishlist = window.StorageService.getWishlist();
         const productId = parseInt(currentProductData.id);
-        
+
         if (!productId) return;
 
         const isInWishlist = wishlist.includes(productId);
-        
+
         if (isInWishlist) {
             // Remove from wishlist
             wishlist = wishlist.filter(id => id !== productId);
             icon.className = 'far fa-heart';
             btn.classList.remove('active');
-            
+
             // Update corresponding product card
             document.querySelector(`.wishlist-btn[data-product-id="${productId}"]`)?.classList.remove('active');
         } else {
@@ -630,13 +630,13 @@ document.addEventListener('DOMContentLoaded', () => {
             wishlist.push(productId);
             icon.className = 'fas fa-heart';
             btn.classList.add('active');
-            
+
             // Update corresponding product card
             document.querySelector(`.wishlist-btn[data-product-id="${productId}"]`)?.classList.add('active');
         }
 
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        
+        window.StorageService.setWishlist(wishlist);
+
         // Trigger wishlist update event
         window.dispatchEvent(new CustomEvent('wishlist-updated', {
             detail: { productId: productId, added: !isInWishlist }
@@ -650,13 +650,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabPanels = modal.querySelectorAll('.tab-panel');
 
     tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const targetTab = this.dataset.tab;
-            
+
             // Update active states
             tabButtons.forEach(btn => btn.classList.remove('active'));
             tabPanels.forEach(panel => panel.classList.remove('active'));
-            
+
             this.classList.add('active');
             modal.querySelector(`.tab-panel[data-panel="${targetTab}"]`)?.classList.add('active');
         });
@@ -667,16 +667,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     const viewButtons = document.querySelectorAll('.view-btn');
     const productsGrid = document.getElementById('products-grid');
-    
+
     if (viewButtons.length > 0 && productsGrid) {
         viewButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const view = this.dataset.view;
-                
+
                 // Update button states
                 viewButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
-                
+
                 // Update grid layout
                 if (view === 'list') {
                     productsGrid.classList.add('list-view');
@@ -685,14 +685,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     productsGrid.classList.add('grid-view');
                     productsGrid.classList.remove('list-view');
                 }
-                
+
                 // Store preference
-                localStorage.setItem('shop-view', view);
+                window.StorageService.setShopView(view);
             });
         });
-        
+
         // Load saved view preference
-        const savedView = localStorage.getItem('shop-view') || 'grid';
+        const savedView = window.StorageService.getShopView();
         const savedButton = document.querySelector(`.view-btn[data-view="${savedView}"]`);
         if (savedButton) {
             savedButton.click();
@@ -704,11 +704,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     const itemsPerPageSelect = document.getElementById('items-per-page');
     if (itemsPerPageSelect) {
-        itemsPerPageSelect.addEventListener('change', function() {
+        itemsPerPageSelect.addEventListener('change', function () {
             const itemsPerPage = this.value;
             console.log(`Items per page changed to: ${itemsPerPage}`);
             // Store preference
-            localStorage.setItem('items-per-page', itemsPerPage);
+            window.StorageService.setItemsPerPage(itemsPerPage);
             // Trigger product grid refresh if needed
             window.dispatchEvent(new CustomEvent('items-per-page-changed', { detail: itemsPerPage }));
         });
@@ -720,14 +720,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileFilterToggle = document.querySelector('.mobile-filter-toggle');
     const filtersSidebar = document.querySelector('.filters-sidebar');
     const clearFiltersBtn = document.querySelector('.clear-filters');
-    
+
     if (mobileFilterToggle && filtersSidebar) {
-        mobileFilterToggle.addEventListener('click', function() {
+        mobileFilterToggle.addEventListener('click', function () {
             const isActive = filtersSidebar.classList.contains('active');
-            
+
             // Toggle sidebar
             filtersSidebar.classList.toggle('active');
-            
+
             // Update button state
             if (isActive) {
                 mobileFilterToggle.classList.remove('active');
@@ -736,53 +736,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileFilterToggle.classList.add('active');
                 document.body.style.overflow = 'hidden'; // Prevent background scroll
             }
-            
+
             // Update aria-expanded
             mobileFilterToggle.setAttribute('aria-expanded', !isActive);
         });
-        
+
         // Close on escape key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && filtersSidebar.classList.contains('active')) {
                 mobileFilterToggle.click();
             }
         });
-        
+
         // Close on backdrop click
-        filtersSidebar.addEventListener('click', function(e) {
+        filtersSidebar.addEventListener('click', function (e) {
             if (e.target === filtersSidebar) {
                 mobileFilterToggle.click();
             }
         });
-        
+
         // Clear filters functionality
         if (clearFiltersBtn) {
-            clearFiltersBtn.addEventListener('click', function() {
+            clearFiltersBtn.addEventListener('click', function () {
                 // Clear all checkboxes
                 const checkboxes = filtersSidebar.querySelectorAll('input[type="checkbox"]');
                 checkboxes.forEach(checkbox => {
                     checkbox.checked = false;
                 });
-                
+
                 // Reset price inputs
                 const priceInputs = filtersSidebar.querySelectorAll('input[type="number"]');
                 priceInputs.forEach(input => {
                     input.value = '';
                 });
-                
+
                 // Update active filters count
                 updateActiveFiltersCount();
-                
+
                 // Trigger filters cleared event
                 window.dispatchEvent(new CustomEvent('filters-cleared'));
             });
         }
-        
+
         // Update active filters count
         function updateActiveFiltersCount() {
             const activeFiltersCount = filtersSidebar.querySelectorAll('input[type="checkbox"]:checked').length;
             const countElement = mobileFilterToggle.querySelector('.active-filters-count');
-            
+
             if (countElement) {
                 if (activeFiltersCount > 0) {
                     countElement.textContent = activeFiltersCount;
@@ -792,10 +792,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-        
+
         // Initial count update
         updateActiveFiltersCount();
-        
+
         // Listen for checkbox changes
         const checkboxes = filtersSidebar.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {

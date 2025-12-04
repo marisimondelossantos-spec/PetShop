@@ -1,0 +1,74 @@
+/* User Menu Styles for Logged-in State */
+
+/* Default State: Show Login/Signup, Hide User Menu */
+.auth-buttons .user-menu {
+    display: none !important;
+}
+
+/* Logged In State: Hide Login/Signup, Show User Menu */
+/* Using html.user-logged-in for immediate application */
+html.user-logged-in .auth-buttons .btn-login,
+html.user-logged-in .auth-buttons .btn-signup {
+    display: none;
+}
+
+html.user-logged-in .auth-buttons .user-menu {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar .user-greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+}
+
+.navbar .btn-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #F87537 0%, #FBA81F 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .btn-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(248, 117, 55, 0.4);
+    color: #fff;
+}
+
+.navbar .btn-profile i {
+    font-size: 16px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .navbar .user-menu {
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 15px;
+        border-top: 1px solid #eaeaea;
+    }
+
+    .navbar .user-greeting {
+        flex: 1;
+    }
+}
+
+/* FOUC Prevention - Show page after CSS loads */
+html {
+    visibility: visible;
+    opacity: 1;
+}
